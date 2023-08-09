@@ -142,7 +142,8 @@ func (c *HorarioSemestreColocacionEspacioAcademicoController) GetAll() {
 			l = append(l, map[string]interface{}{})
 		}
 		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": l}
-	c.ServeJSON()
+		c.ServeJSON()
+	}
 }
 
 // Put ...
@@ -175,6 +176,7 @@ func (c *HorarioSemestreColocacionEspacioAcademicoController) Put() {
 		c.Abort("400")
 	}
 	c.ServeJSON()
+
 }
 
 // Delete ...
