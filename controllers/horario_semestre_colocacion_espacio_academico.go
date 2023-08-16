@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/udistrital/horarios_crud/horarios_crud/models"
+	"github.com/udistrital/horarios_crud/models"
 	"github.com/udistrital/utils_oas/time_bogota"
 
 	"github.com/astaxie/beego"
@@ -142,7 +142,9 @@ func (c *HorarioSemestreColocacionEspacioAcademicoController) GetAll() {
 			l = append(l, map[string]interface{}{})
 		}
 		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": l}
-	c.ServeJSON()
+		c.ServeJSON()
+	}
+
 }
 
 // Put ...

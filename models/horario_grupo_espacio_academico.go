@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
@@ -15,8 +14,8 @@ type HorarioGrupoEspacioAcademico struct {
 	HorarioSemestreId     *HorarioSemestre       `orm:"column(horario_semestre_id);rel(fk)"`
 	GrupoEspacioAcademico *GrupoEspacioAcademico `orm:"column(grupo_espacio_academico);rel(fk)"`
 	Activo                bool                   `orm:"column(activo)"`
-	FechaCreacion         time.Time              `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacio      time.Time              `orm:"column(fecha_modificacio);type(timestamp without time zone)"`
+	FechaCreacion         string                 `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion     string                 `orm:"column(fecha_modificacio);type(timestamp without time zone)"`
 }
 
 func (t *HorarioGrupoEspacioAcademico) TableName() string {

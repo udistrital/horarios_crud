@@ -5,20 +5,19 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type GrupoEspacioAcademico struct {
-	Id                 int       `orm:"column(id);pk;auto"`
-	CodigoProyecto     string    `orm:"column(codigo_proyecto)"`
-	IndicadorGrupo     string    `orm:"column(indicador_grupo)"`
-	CuposGrupos        float64   `orm:"column(cupos_grupos)"`
-	EspaciosAcademicos string    `orm:"column(espacios_academicos);type(json)"`
-	Activo             bool      `orm:"column(activo)"`
-	FechaCreacion      time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion  time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Id                 int     `orm:"column(id);pk;auto"`
+	CodigoProyecto     string  `orm:"column(codigo_proyecto)"`
+	IndicadorGrupo     string  `orm:"column(indicador_grupo)"`
+	CuposGrupos        float64 `orm:"column(cupos_grupos)"`
+	EspaciosAcademicos string  `orm:"column(espacios_academicos);type(json)"`
+	Activo             bool    `orm:"column(activo)"`
+	FechaCreacion      string  `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion  string  `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *GrupoEspacioAcademico) TableName() string {
