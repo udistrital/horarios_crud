@@ -144,6 +144,7 @@ func (c *HorarioSemestreColocacionEspacioAcademicoController) GetAll() {
 		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": l}
 		c.ServeJSON()
 	}
+
 }
 
 // Put ...
