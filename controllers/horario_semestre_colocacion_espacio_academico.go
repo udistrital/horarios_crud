@@ -177,6 +177,7 @@ func (c *HorarioSemestreColocacionEspacioAcademicoController) Put() {
 		c.Abort("400")
 	}
 	c.ServeJSON()
+
 }
 
 // Delete ...

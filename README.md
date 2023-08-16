@@ -2,6 +2,7 @@
 El API provee la gestion de las diferentes procesos que requiere los horarios para el sistema de gestion academica de la universidad Distrital Francisco Jose de Caldas
 
 
+
 ## Especificaciones Técnicas
 
 ### Tecnologías Implementadas y Versiones
