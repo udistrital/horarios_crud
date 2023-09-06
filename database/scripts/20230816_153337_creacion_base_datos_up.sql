@@ -70,7 +70,7 @@ COMMENT ON COLUMN horarios.horario.fecha_creacion IS E'Campo parametrico para la
 -- ddl-end --
 COMMENT ON COLUMN horarios.horario.fecha_modificacion IS E'Campo parametrico para la relación de la fecha de modificación del registro';
 -- ddl-end --
-ALTER TABLE horarios.horario OWNER TO postgres;
+--ALTER TABLE horarios.horario OWNER TO postgres;
 -- ddl-end --
 
 -- object: horarios.estado_creacion | type: TABLE --
@@ -98,7 +98,7 @@ COMMENT ON COLUMN horarios.estado_creacion.fecha_creacion IS E'Campo para el reg
 -- ddl-end --
 COMMENT ON COLUMN horarios.estado_creacion.fecha_modificacion IS E'Campo para el registro de la fecha de modificación';
 -- ddl-end --
-ALTER TABLE horarios.estado_creacion OWNER TO postgres;
+--ALTER TABLE horarios.estado_creacion OWNER TO postgres;
 -- ddl-end --
 
 -- object: horarios.horario_semestre | type: TABLE --
@@ -138,7 +138,7 @@ COMMENT ON COLUMN horarios.horario_semestre.fecha_creacion IS E'Campo parametric
 -- ddl-end --
 COMMENT ON COLUMN horarios.horario_semestre.fecha_modificacion IS E'Campo parametrico para el registo de la fecha de modificación';
 -- ddl-end --
-ALTER TABLE horarios.horario_semestre OWNER TO postgres;
+--ALTER TABLE horarios.horario_semestre OWNER TO postgres;
 -- ddl-end --
 
 -- object: horarios.estado_creacion_semestre | type: TABLE --
@@ -166,7 +166,7 @@ COMMENT ON COLUMN horarios.estado_creacion_semestre.fecha_creacion IS E'Campo pa
 -- ddl-end --
 COMMENT ON COLUMN horarios.estado_creacion_semestre.fecha_modificacion IS E'Campo para el registro de la fecha de modificación';
 -- ddl-end --
-ALTER TABLE horarios.estado_creacion_semestre OWNER TO postgres;
+--ALTER TABLE horarios.estado_creacion_semestre OWNER TO postgres;
 -- ddl-end --
 
 -- object: horarios.grupo_espacio_academico | type: TABLE --
@@ -197,7 +197,7 @@ COMMENT ON COLUMN horarios.grupo_espacio_academico.fecha_creacion IS E'Campo par
 -- ddl-end --
 COMMENT ON COLUMN horarios.grupo_espacio_academico.fecha_modificacion IS E'Campo parametrico para el registro de la fecha de modificación';
 -- ddl-end --
-ALTER TABLE horarios.grupo_espacio_academico OWNER TO postgres;
+--ALTER TABLE horarios.grupo_espacio_academico OWNER TO postgres;
 -- ddl-end --
 
 -- object: horarios.horario_grupo_espacio_academico | type: TABLE --
@@ -222,7 +222,7 @@ COMMENT ON COLUMN horarios.horario_grupo_espacio_academico.fecha_creacion IS E'C
 -- ddl-end --
 COMMENT ON COLUMN horarios.horario_grupo_espacio_academico.fecha_modificacio IS E'Campo parametrico para el registro de la fecha de modificación';
 -- ddl-end --
-ALTER TABLE horarios.horario_grupo_espacio_academico OWNER TO postgres;
+--ALTER TABLE horarios.horario_grupo_espacio_academico OWNER TO postgres;
 -- ddl-end --
 
 -- object: horarios.colocacion_espacio_academico | type: TABLE --
@@ -253,7 +253,7 @@ COMMENT ON COLUMN horarios.colocacion_espacio_academico.fecha_creacion IS E'Camp
 -- ddl-end --
 COMMENT ON COLUMN horarios.colocacion_espacio_academico.fecha_modificacion IS E'Campo parametrico para el registro de la fecha de modificación';
 -- ddl-end --
-ALTER TABLE horarios.colocacion_espacio_academico OWNER TO postgres;
+--ALTER TABLE horarios.colocacion_espacio_academico OWNER TO postgres;
 -- ddl-end --
 
 -- object: horarios.horario_semestre_colocacion_espacio_academico | type: TABLE --
@@ -278,7 +278,7 @@ COMMENT ON COLUMN horarios.horario_semestre_colocacion_espacio_academico.fecha_c
 -- ddl-end --
 COMMENT ON COLUMN horarios.horario_semestre_colocacion_espacio_academico.fecha_modificacion IS E'Campo parametrico para el registro de la fecha de modificación';
 -- ddl-end --
-ALTER TABLE horarios.horario_semestre_colocacion_espacio_academico OWNER TO postgres;
+--ALTER TABLE horarios.horario_semestre_colocacion_espacio_academico OWNER TO postgres;
 -- ddl-end --
 
 -- object: rel_horario_estado_creacion_semestre | type: CONSTRAINT --

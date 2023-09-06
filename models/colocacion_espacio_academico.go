@@ -11,11 +11,11 @@ import (
 
 type ColocacionEspacioAcademico struct {
 	Id                             int    `orm:"column(id);pk;auto"`
-	EspacioAcademicoId             int    `orm:"column(espacio_academico_id)"`
+	EspacioAcademicoId             string `orm:"column(espacio_academico_id)"`
 	EspacioFisicoId                int    `orm:"column(espacio_fisico_id)"`
 	ColocacionEspacioAcademico     string `orm:"column(colocacion_espacio_academico);type(json)"`
 	ResumenColocacionEspacioFisico string `orm:"column(resumen_colocacion_espacio_fisico);type(json);null"`
-	Activo                         bool   `orm:"column(activo)"`
+	Activo                         bool   `orm:"column(activo);"`
 	FechaCreacion                  string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion              string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
