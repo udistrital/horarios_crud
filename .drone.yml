@@ -47,32 +47,12 @@ steps:
     event:
     - push
 
-- name: go_build
-  image: golang:1.18
+- name: nest_build
+  image: node:lts-alpine
   commands:
-  - go mod init
-  - go get -t
-  - GOOS=linux GOARCH=amd64 go build -o main
-  when:
-    branch:
-    - develop
-    - release/*
-    - master
-    event:
-    - push
-
-- name: go_run_test
-  image: golang:1.18
-  commands:
-  - go mod tidy
-  - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.41.1
-  - go get github.com/smartystreets/goconvey/convey
-  - go get github.com/axw/gocov/...
-  - go get github.com/AlekSi/gocov-xml
-  - go get -u github.com/jstemmer/go-junit-report
-  - golangci-lint run ./... | tee report.xml
-  # - gocov test ./... | gocov-xml > coverage.xml
-  # - go test -v ./... | go-junit-report > test.xml
+  - node --version
+  - npm i
+  - npm run build
   when:
     branch:
     - develop
@@ -88,48 +68,6 @@ steps:
       from_secret: SONAR_HOST
     sonar_token:
       from_secret: SONAR_TOKEN
-
-- name: beego_migrate
-  image: golang:1.18
-  environment:
-    PG_MIGRATION_USER:
-      from_secret: PG_MIGRATION_USER
-    PG_MIGRATION_PASS:
-      from_secret: PG_MIGRATION_PASS
-    PG_MIGRATION_URL:
-      from_secret: PG_MIGRATION_URL
-    PG_MIGRATION_DBNAME:
-      from_secret: PG_MIGRATION_DBNAME
-  commands:
-  - go install github.com/beego/bee@v1.12.3
-  - go get
-  - bee migrate -driver=postgres -conn="postgres://$${PG_MIGRATION_USER}:$${PG_MIGRATION_PASS}@$${PG_MIGRATION_URL}:5432/$${PG_MIGRATION_DBNAME}?sslmode=disable"
-  when:
-    branch:
-    - release/*
-    event:
-    - push
-
-- name: beego_rollback
-  image: golang:1.18
-  environment:
-    PG_MIGRATION_USER:
-      from_secret: PG_MIGRATION_USER
-    PG_MIGRATION_PASS:
-      from_secret: PG_MIGRATION_PASS
-    PG_MIGRATION_URL:
-      from_secret: PG_MIGRATION_URL
-    PG_MIGRATION_DBNAME:
-      from_secret: PG_MIGRATION_DBNAME
-  commands:
-  - go install github.com/beego/bee@v1.12.3
-  - go get
-  - bee migrate rollback -driver=postgres -conn="postgres://$${PG_MIGRATION_USER}:$${PG_MIGRATION_PASS}@$${PG_MIGRATION_URL}:5432/$${PG_MIGRATION_DBNAME}?sslmode=disable"
-  when:
-    branch:
-    - release/*
-    status:
-    - failure
 
 - name: publish_to_ecr_release
   image: plugins/ecr

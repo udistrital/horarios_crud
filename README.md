@@ -6,65 +6,45 @@ El API provee la gestion de las diferentes procesos que requiere los horarios pa
 ## Especificaciones Técnicas
 
 ### Tecnologías Implementadas y Versiones
-* [Golang](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/golang.md)
-* [BeeGo](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/beego.md)
-* [Docker](https://docs.docker.com/engine/install/ubuntu/)
-* [Docker Compose](https://docs.docker.com/compose/)
+
+* [NestJS](https://github.com/nestjs/nest)
+* [MongoDB](https://github.com/mongodb/mongo)
+
+**Entorno Local:** NodeJS Version: v20.11.1 | NPM Version: 10.2.4 | Nest CLI Version: 10.3.2 | MongoDB version: v7.0.6
 
 ### Variables de Entorno
 ```shell
-HORARIOS_CRUD_PGDB=[nombre de la base de datos]
-HORARIOS_CRUD_PGPASS=[password del usuario]
-HORARIOS_CRUD_PGHOST=[direccion de la base de datos]
-HORARIOS_CRUD_PGPORT=[Puerto de conexión con la base de datos]
-HORARIOS_CRUD_PGUSER=[usuario con acceso a la base de datos]
-HORARIOS_CRUD_PGSCHEMA=[esquema donde se ubican las tablas]
-HORARIOS_CRUD_HTTP_PORT=[puerto de ejecucion] bee run
+HORARIOS_CRUD_DB=[nombre de la base de datos]
+HORARIOS_CRUD_PASS=[password del usuario]
+HORARIOS_CRUD_HOST=[direccion de la base de datos]
+HORARIOS_CRUD_PORT=[Puerto de conexión con la base de datos]
+HORARIOS_CRUD_USER=[usuario con acceso a la base de datos]
+HORARIOS_CRUD_AUTH_DB=[base de datos de autorizacion]
+HORARIOS_CRUD_HTTP_PORT=[puerto de ejecucion]
 ```
 
-**NOTA:** Las variables se pueden ver en el fichero conf/app.conf y están identificadas con HORARIOS_CRUD_...
+**NOTA:** Las variables se pueden ver en el fichero src/config/configuration.ts y están identificadas con HORARIOS_CRUD_...
 
 ### Ejecución del Proyecto
 ```shell
-#1. Obtener el repositorio con Go
-go get github.com/udistrital/horarios_crud
-
-#2. Moverse a la carpeta del repositorio
-cd $GOPATH/src/github.com/udistrital/horarios_crud
-
-# 3. Moverse a la rama **develop**
-git pull origin develop && git checkout develop
-
-# 4. alimentar todas las variables de entorno que utiliza el proyecto.
-HORARIOS_CRUD_HTTP_PORT=8080 HORARIOS_CRUD_PGHOST=127.0.0.1:27017 HORARIOS_CRUD_SOME_VARIABLE=some_value bee run
-```
-
-### Ejecución Dockerfile
-```shell
-# docker build --tag=inscripcion_crud . --no-cache
-# docker run -p 80:80 inscripcion_crud
-```
-
-### Ejecución docker-compose
-```shell
 #1. Clonar el repositorio
-git clone -b develop https://github.com/udistrital/horarios_crud
+git clone git@github.com:udistrital/horarios_crud.git #Opcion 1: Via SSH
+git clone https://github.com/udistrital/horarios_crud.git #Opcion 2: Via HTTPS
 
 #2. Moverse a la carpeta del repositorio
 cd horarios_crud
 
-#3. Crear un fichero con el nombre **custom.env**
-# En windows ejecutar:* ` ni custom.env`
-touch custom.env
+#3. Moverse a la rama **develop**
+git pull origin develop && git checkout develop
 
-#4. Crear la network **back_end** para los contenedores
-docker network create back_end
+#4. Instalar dependencias
+npm install
 
-#5. Ejecutar el compose del contenedor
-docker-compose up --build
+#5. Alimentar todas las variables de entorno que utiliza el proyecto.
+export HORARIOS_CRUD_HTTP_PORT='3000' ...
 
-#6. Comprobar que los contenedores estén en ejecución
-docker ps
+#6. Ejecutar en develop mode para hotreloading
+npm run start:dev
 ```
 
 ### Ejecución Pruebas
@@ -82,10 +62,7 @@ Pruebas unitarias
 
 ## Modelo de Datos
 
-[Modelo de Datos API CRUD Planes de Estudios](https://github.com/udistrital/planes_estudios_crud/blob/develop/database/modelo/Modelo_Horarios_sql.png)
-
-
-
+![Modelo de Datos API CRUD Horarios](/database/horarios_crud.png)
 
 ## Licencia
 

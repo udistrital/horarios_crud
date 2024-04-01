@@ -1,1 +1,0 @@
-ALTER TABLE horarios.colocacion_espacio_academico ALTER COLUMN espacio_academico_id SET DATA TYPE varchar;
