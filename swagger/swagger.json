@@ -1,1701 +1,1735 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "title": "beego Horarios_crud",
-        "description": "beego has a very cool tools to autogenerate documents for your API",
-        "version": "1.0.0",
-        "termsOfService": "http://beego.me/",
-        "contact": {
-            "email": "astaxie@gmail.com"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        }
-    },
-    "basePath": "/v1",
+    "openapi": "3.0.0",
     "paths": {
-        "/colocacion_espacio_academico/": {
+        "/": {
             "get": {
-                "tags": [
-                    "colocacion_espacio_academico"
-                ],
-                "description": "get ColocacionEspacioAcademico",
-                "operationId": "ColocacionEspacioAcademicoController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
+                "operationId": "AppController_healthcheck",
+                "parameters": [],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.ColocacionEspacioAcademico"
-                        }
-                    },
-                    "403": {
                         "description": ""
                     }
-                }
-            },
-            "post": {
+                },
                 "tags": [
-                    "colocacion_espacio_academico"
-                ],
-                "description": "create ColocacionEspacioAcademico",
-                "operationId": "ColocacionEspacioAcademicoController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for ColocacionEspacioAcademico content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.ColocacionEspacioAcademico"
+                    "health-check"
+                ]
+            }
+        },
+        "/colocacion-espacio-academico": {
+            "post": {
+                "operationId": "ColocacionEspacioAcademicoController_post",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ColocacionEspacioAcademicoDto"
+                            }
                         }
                     }
-                ],
+                },
                 "responses": {
                     "201": {
-                        "description": "{int} models.ColocacionEspacioAcademico"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/colocacion_espacio_academico/{id}": {
-            "get": {
-                "tags": [
-                    "colocacion_espacio_academico"
-                ],
-                "description": "get ColocacionEspacioAcademico by id",
-                "operationId": "ColocacionEspacioAcademicoController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.ColocacionEspacioAcademico"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "colocacion_espacio_academico"
-                ],
-                "description": "update the ColocacionEspacioAcademico",
-                "operationId": "ColocacionEspacioAcademicoController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for ColocacionEspacioAcademico content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.ColocacionEspacioAcademico"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.ColocacionEspacioAcademico"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "colocacion_espacio_academico"
-                ],
-                "description": "delete the ColocacionEspacioAcademico",
-                "operationId": "ColocacionEspacioAcademicoController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/estado_creacion/": {
-            "get": {
-                "tags": [
-                    "estado_creacion"
-                ],
-                "description": "get EstadoCreacion",
-                "operationId": "EstadoCreacionController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.EstadoCreacion"
-                        }
-                    },
-                    "403": {
                         "description": ""
                     }
-                }
-            },
-            "post": {
+                },
                 "tags": [
-                    "estado_creacion"
-                ],
-                "description": "create EstadoCreacion",
-                "operationId": "EstadoCreacionController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for EstadoCreacion content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.EstadoCreacion"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.EstadoCreacion"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/estado_creacion/{id}": {
+                    "colocacion-espacio-academico"
+                ]
+            },
             "get": {
-                "tags": [
-                    "estado_creacion"
-                ],
-                "description": "get EstadoCreacion by id",
-                "operationId": "EstadoCreacionController.Get One",
+                "operationId": "ColocacionEspacioAcademicoController_getAll",
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.EstadoCreacion"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "estado_creacion"
-                ],
-                "description": "update the EstadoCreacion",
-                "operationId": "EstadoCreacionController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for EstadoCreacion content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.EstadoCreacion"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.EstadoCreacion"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "estado_creacion"
-                ],
-                "description": "delete the EstadoCreacion",
-                "operationId": "EstadoCreacionController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/estado_creacion_semestre/": {
-            "get": {
-                "tags": [
-                    "estado_creacion_semestre"
-                ],
-                "description": "get EstadoCreacionSemestre",
-                "operationId": "EstadoCreacionSemestreController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
                         "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
+                        "required": false,
+                        "in": "query",
+                        "description": "query - Filter. e.g. col1:v1,col2:v2 …",
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "in": "query",
                         "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
+                        "required": false,
+                        "in": "query",
+                        "description": "fields - Fields returned. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "in": "query",
                         "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
+                        "required": false,
+                        "in": "query",
+                        "description": "sortby - Sorted-by fields. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "in": "query",
                         "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
+                        "required": false,
+                        "in": "query",
+                        "description": "order - Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc …",
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "in": "query",
                         "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
+                        "required": false,
+                        "in": "query",
+                        "description": "limit - Limit the size of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "in": "query",
                         "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
+                        "required": false,
+                        "in": "query",
+                        "description": "offset - Start position of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "populate",
+                        "required": false,
+                        "in": "query",
+                        "description": "populate - show subqueries. Must be a boolean",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.EstadoCreacionSemestre"
-                        }
-                    },
-                    "403": {
                         "description": ""
                     }
-                }
-            },
-            "post": {
+                },
                 "tags": [
-                    "estado_creacion_semestre"
-                ],
-                "description": "create EstadoCreacionSemestre",
-                "operationId": "EstadoCreacionSemestreController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for EstadoCreacionSemestre content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.EstadoCreacionSemestre"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.EstadoCreacionSemestre"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
+                    "colocacion-espacio-academico"
+                ]
             }
         },
-        "/estado_creacion_semestre/{id}": {
+        "/colocacion-espacio-academico/{_id}": {
             "get": {
-                "tags": [
-                    "estado_creacion_semestre"
-                ],
-                "description": "get EstadoCreacionSemestre by id",
-                "operationId": "EstadoCreacionSemestreController.Get One",
+                "operationId": "ColocacionEspacioAcademicoController_getById",
                 "parameters": [
                     {
+                        "name": "_id",
+                        "required": true,
                         "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.EstadoCreacionSemestre"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "estado_creacion_semestre"
-                ],
-                "description": "update the EstadoCreacionSemestre",
-                "operationId": "EstadoCreacionSemestreController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for EstadoCreacionSemestre content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.EstadoCreacionSemestre"
+                            "type": "string"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.EstadoCreacionSemestre"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "estado_creacion_semestre"
-                ],
-                "description": "delete the EstadoCreacionSemestre",
-                "operationId": "EstadoCreacionSemestreController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/grupo_espacio_academico/": {
-            "get": {
-                "tags": [
-                    "grupo_espacio_academico"
-                ],
-                "description": "get GrupoEspacioAcademico",
-                "operationId": "GrupoEspacioAcademicoController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.GrupoEspacioAcademico"
-                        }
-                    },
-                    "403": {
                         "description": ""
                     }
-                }
-            },
-            "post": {
+                },
                 "tags": [
-                    "grupo_espacio_academico"
-                ],
-                "description": "create GrupoEspacioAcademico",
-                "operationId": "GrupoEspacioAcademicoController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for GrupoEspacioAcademico content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.GrupoEspacioAcademico"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.GrupoEspacioAcademico"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/grupo_espacio_academico/{id}": {
-            "get": {
-                "tags": [
-                    "grupo_espacio_academico"
-                ],
-                "description": "get GrupoEspacioAcademico by id",
-                "operationId": "GrupoEspacioAcademicoController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.GrupoEspacioAcademico"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
+                    "colocacion-espacio-academico"
+                ]
             },
             "put": {
-                "tags": [
-                    "grupo_espacio_academico"
-                ],
-                "description": "update the GrupoEspacioAcademico",
-                "operationId": "GrupoEspacioAcademicoController.Put",
+                "operationId": "ColocacionEspacioAcademicoController_put",
                 "parameters": [
                     {
+                        "name": "_id",
+                        "required": true,
                         "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for GrupoEspacioAcademico content",
-                        "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.GrupoEspacioAcademico"
+                            "type": "string"
                         }
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ColocacionEspacioAcademicoDto"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.GrupoEspacioAcademico"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
+                        "description": ""
                     }
-                }
+                },
+                "tags": [
+                    "colocacion-espacio-academico"
+                ]
             },
             "delete": {
-                "tags": [
-                    "grupo_espacio_academico"
-                ],
-                "description": "delete the GrupoEspacioAcademico",
-                "operationId": "GrupoEspacioAcademicoController.Delete",
+                "operationId": "ColocacionEspacioAcademicoController_delete",
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
+                        "name": "_id",
                         "required": true,
-                        "type": "string"
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
+                        "description": ""
                     }
-                }
+                },
+                "tags": [
+                    "colocacion-espacio-academico"
+                ]
             }
         },
-        "/horario/": {
+        "/estado-creacion-semestre": {
+            "post": {
+                "operationId": "EstadoCreacionSemestreController_post",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EstadoCreacionSemestreDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "estado-creacion-semestre"
+                ]
+            },
             "get": {
+                "operationId": "EstadoCreacionSemestreController_getAll",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "required": false,
+                        "in": "query",
+                        "description": "query - Filter. e.g. col1:v1,col2:v2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "in": "query",
+                        "description": "fields - Fields returned. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sortby",
+                        "required": false,
+                        "in": "query",
+                        "description": "sortby - Sorted-by fields. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "required": false,
+                        "in": "query",
+                        "description": "order - Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "required": false,
+                        "in": "query",
+                        "description": "limit - Limit the size of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "required": false,
+                        "in": "query",
+                        "description": "offset - Start position of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "populate",
+                        "required": false,
+                        "in": "query",
+                        "description": "populate - show subqueries. Must be a boolean",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "estado-creacion-semestre"
+                ]
+            }
+        },
+        "/estado-creacion-semestre/{_id}": {
+            "get": {
+                "operationId": "EstadoCreacionSemestreController_getById",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "estado-creacion-semestre"
+                ]
+            },
+            "put": {
+                "operationId": "EstadoCreacionSemestreController_put",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EstadoCreacionSemestreDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "estado-creacion-semestre"
+                ]
+            },
+            "delete": {
+                "operationId": "EstadoCreacionSemestreController_delete",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "estado-creacion-semestre"
+                ]
+            }
+        },
+        "/estado-creacion": {
+            "post": {
+                "operationId": "EstadoCreacionController_post",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EstadoCreacionDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "estado-creacion"
+                ]
+            },
+            "get": {
+                "operationId": "EstadoCreacionController_getAll",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "required": false,
+                        "in": "query",
+                        "description": "query - Filter. e.g. col1:v1,col2:v2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "in": "query",
+                        "description": "fields - Fields returned. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sortby",
+                        "required": false,
+                        "in": "query",
+                        "description": "sortby - Sorted-by fields. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "required": false,
+                        "in": "query",
+                        "description": "order - Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "required": false,
+                        "in": "query",
+                        "description": "limit - Limit the size of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "required": false,
+                        "in": "query",
+                        "description": "offset - Start position of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "populate",
+                        "required": false,
+                        "in": "query",
+                        "description": "populate - show subqueries. Must be a boolean",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "estado-creacion"
+                ]
+            }
+        },
+        "/estado-creacion/{_id}": {
+            "get": {
+                "operationId": "EstadoCreacionController_getById",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "estado-creacion"
+                ]
+            },
+            "put": {
+                "operationId": "EstadoCreacionController_put",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EstadoCreacionDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "estado-creacion"
+                ]
+            },
+            "delete": {
+                "operationId": "EstadoCreacionController_delete",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "estado-creacion"
+                ]
+            }
+        },
+        "/grupo-espacio-academico": {
+            "post": {
+                "operationId": "GrupoEspacioAcademicoController_post",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GrupoEspacioAcademicoDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "grupo-espacio-academico"
+                ]
+            },
+            "get": {
+                "operationId": "GrupoEspacioAcademicoController_getAll",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "required": false,
+                        "in": "query",
+                        "description": "query - Filter. e.g. col1:v1,col2:v2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "in": "query",
+                        "description": "fields - Fields returned. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sortby",
+                        "required": false,
+                        "in": "query",
+                        "description": "sortby - Sorted-by fields. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "required": false,
+                        "in": "query",
+                        "description": "order - Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "required": false,
+                        "in": "query",
+                        "description": "limit - Limit the size of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "required": false,
+                        "in": "query",
+                        "description": "offset - Start position of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "populate",
+                        "required": false,
+                        "in": "query",
+                        "description": "populate - show subqueries. Must be a boolean",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "grupo-espacio-academico"
+                ]
+            }
+        },
+        "/grupo-espacio-academico/{_id}": {
+            "get": {
+                "operationId": "GrupoEspacioAcademicoController_getById",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "grupo-espacio-academico"
+                ]
+            },
+            "put": {
+                "operationId": "GrupoEspacioAcademicoController_put",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GrupoEspacioAcademicoDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "grupo-espacio-academico"
+                ]
+            },
+            "delete": {
+                "operationId": "GrupoEspacioAcademicoController_delete",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "grupo-espacio-academico"
+                ]
+            }
+        },
+        "/horario-semestre-colocacion-espacio-academico": {
+            "post": {
+                "operationId": "HorarioSemestreColocacionEspacioAcademicoController_post",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/HorarioSemestreColocacionEspacioAcademicoDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre-colocacion-espacio-academico"
+                ]
+            },
+            "get": {
+                "operationId": "HorarioSemestreColocacionEspacioAcademicoController_getAll",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "required": false,
+                        "in": "query",
+                        "description": "query - Filter. e.g. col1:v1,col2:v2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "in": "query",
+                        "description": "fields - Fields returned. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sortby",
+                        "required": false,
+                        "in": "query",
+                        "description": "sortby - Sorted-by fields. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "required": false,
+                        "in": "query",
+                        "description": "order - Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "required": false,
+                        "in": "query",
+                        "description": "limit - Limit the size of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "required": false,
+                        "in": "query",
+                        "description": "offset - Start position of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "populate",
+                        "required": false,
+                        "in": "query",
+                        "description": "populate - show subqueries. Must be a boolean",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre-colocacion-espacio-academico"
+                ]
+            }
+        },
+        "/horario-semestre-colocacion-espacio-academico/{_id}": {
+            "get": {
+                "operationId": "HorarioSemestreColocacionEspacioAcademicoController_getById",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre-colocacion-espacio-academico"
+                ]
+            },
+            "put": {
+                "operationId": "HorarioSemestreColocacionEspacioAcademicoController_put",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/HorarioSemestreColocacionEspacioAcademicoDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre-colocacion-espacio-academico"
+                ]
+            },
+            "delete": {
+                "operationId": "HorarioSemestreColocacionEspacioAcademicoController_delete",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre-colocacion-espacio-academico"
+                ]
+            }
+        },
+        "/horario-semestre-grupo-espacio-academico": {
+            "post": {
+                "operationId": "HorarioSemestreGrupoEspacioAcademicoController_post",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/HorarioSemestreGrupoEspacioAcademicoDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre-grupo-espacio-academico"
+                ]
+            },
+            "get": {
+                "operationId": "HorarioSemestreGrupoEspacioAcademicoController_getAll",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "required": false,
+                        "in": "query",
+                        "description": "query - Filter. e.g. col1:v1,col2:v2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "in": "query",
+                        "description": "fields - Fields returned. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sortby",
+                        "required": false,
+                        "in": "query",
+                        "description": "sortby - Sorted-by fields. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "required": false,
+                        "in": "query",
+                        "description": "order - Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "required": false,
+                        "in": "query",
+                        "description": "limit - Limit the size of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "required": false,
+                        "in": "query",
+                        "description": "offset - Start position of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "populate",
+                        "required": false,
+                        "in": "query",
+                        "description": "populate - show subqueries. Must be a boolean",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre-grupo-espacio-academico"
+                ]
+            }
+        },
+        "/horario-semestre-grupo-espacio-academico/{_id}": {
+            "get": {
+                "operationId": "HorarioSemestreGrupoEspacioAcademicoController_getById",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre-grupo-espacio-academico"
+                ]
+            },
+            "put": {
+                "operationId": "HorarioSemestreGrupoEspacioAcademicoController_put",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/HorarioSemestreGrupoEspacioAcademicoDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre-grupo-espacio-academico"
+                ]
+            },
+            "delete": {
+                "operationId": "HorarioSemestreGrupoEspacioAcademicoController_delete",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre-grupo-espacio-academico"
+                ]
+            }
+        },
+        "/horario-semestre": {
+            "post": {
+                "operationId": "HorarioSemestreController_post",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/HorarioSemestreDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre"
+                ]
+            },
+            "get": {
+                "operationId": "HorarioSemestreController_getAll",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "required": false,
+                        "in": "query",
+                        "description": "query - Filter. e.g. col1:v1,col2:v2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fields",
+                        "required": false,
+                        "in": "query",
+                        "description": "fields - Fields returned. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sortby",
+                        "required": false,
+                        "in": "query",
+                        "description": "sortby - Sorted-by fields. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "order",
+                        "required": false,
+                        "in": "query",
+                        "description": "order - Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc …",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "required": false,
+                        "in": "query",
+                        "description": "limit - Limit the size of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "required": false,
+                        "in": "query",
+                        "description": "offset - Start position of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "populate",
+                        "required": false,
+                        "in": "query",
+                        "description": "populate - show subqueries. Must be a boolean",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre"
+                ]
+            }
+        },
+        "/horario-semestre/{_id}": {
+            "get": {
+                "operationId": "HorarioSemestreController_getById",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre"
+                ]
+            },
+            "put": {
+                "operationId": "HorarioSemestreController_put",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/HorarioSemestreDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre"
+                ]
+            },
+            "delete": {
+                "operationId": "HorarioSemestreController_delete",
+                "parameters": [
+                    {
+                        "name": "_id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "horario-semestre"
+                ]
+            }
+        },
+        "/horario": {
+            "post": {
+                "operationId": "HorarioController_post",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/HorarioDto"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
                 "tags": [
                     "horario"
-                ],
-                "description": "get Horario",
-                "operationId": "HorarioController.Get All",
+                ]
+            },
+            "get": {
+                "operationId": "HorarioController_getAll",
                 "parameters": [
                     {
-                        "in": "query",
                         "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
+                        "required": false,
+                        "in": "query",
+                        "description": "query - Filter. e.g. col1:v1,col2:v2 …",
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "in": "query",
                         "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
+                        "required": false,
+                        "in": "query",
+                        "description": "fields - Fields returned. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "in": "query",
                         "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
+                        "required": false,
+                        "in": "query",
+                        "description": "sortby - Sorted-by fields. e.g. col1,col2 …",
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "in": "query",
                         "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
+                        "required": false,
+                        "in": "query",
+                        "description": "order - Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc …",
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "in": "query",
                         "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
+                        "required": false,
+                        "in": "query",
+                        "description": "limit - Limit the size of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
                     },
                     {
-                        "in": "query",
                         "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
+                        "required": false,
+                        "in": "query",
+                        "description": "offset - Start position of result set. Must be an integer",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "populate",
+                        "required": false,
+                        "in": "query",
+                        "description": "populate - show subqueries. Must be a boolean",
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.Horario"
-                        }
-                    },
-                    "403": {
                         "description": ""
                     }
-                }
-            },
-            "post": {
+                },
                 "tags": [
                     "horario"
-                ],
-                "description": "create Horario",
-                "operationId": "HorarioController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for Horario content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.Horario"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.Horario"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
+                ]
             }
         },
-        "/horario/{id}": {
+        "/horario/{_id}": {
             "get": {
-                "tags": [
-                    "horario"
-                ],
-                "description": "get Horario by id",
-                "operationId": "HorarioController.Get One",
+                "operationId": "HorarioController_getById",
                 "parameters": [
                     {
+                        "name": "_id",
+                        "required": true,
                         "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.Horario"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "horario"
-                ],
-                "description": "update the Horario",
-                "operationId": "HorarioController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for Horario content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.Horario"
+                            "type": "string"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.Horario"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "horario"
-                ],
-                "description": "delete the Horario",
-                "operationId": "HorarioController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/horario_grupo_espacio_academico/": {
-            "get": {
-                "tags": [
-                    "horario_grupo_espacio_academico"
-                ],
-                "description": "get HorarioGrupoEspacioAcademico",
-                "operationId": "HorarioGrupoEspacioAcademicoController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.HorarioGrupoEspacioAcademico"
-                        }
-                    },
-                    "403": {
                         "description": ""
                     }
-                }
-            },
-            "post": {
+                },
                 "tags": [
-                    "horario_grupo_espacio_academico"
-                ],
-                "description": "create HorarioGrupoEspacioAcademico",
-                "operationId": "HorarioGrupoEspacioAcademicoController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for HorarioGrupoEspacioAcademico content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.HorarioGrupoEspacioAcademico"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.HorarioGrupoEspacioAcademico"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/horario_grupo_espacio_academico/{id}": {
-            "get": {
-                "tags": [
-                    "horario_grupo_espacio_academico"
-                ],
-                "description": "get HorarioGrupoEspacioAcademico by id",
-                "operationId": "HorarioGrupoEspacioAcademicoController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.HorarioGrupoEspacioAcademico"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
+                    "horario"
+                ]
             },
             "put": {
-                "tags": [
-                    "horario_grupo_espacio_academico"
-                ],
-                "description": "update the HorarioGrupoEspacioAcademico",
-                "operationId": "HorarioGrupoEspacioAcademicoController.Put",
+                "operationId": "HorarioController_put",
                 "parameters": [
                     {
+                        "name": "_id",
+                        "required": true,
                         "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for HorarioGrupoEspacioAcademico content",
-                        "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.HorarioGrupoEspacioAcademico"
+                            "type": "string"
                         }
                     }
                 ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.HorarioGrupoEspacioAcademico"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/HorarioDto"
+                            }
                         }
-                    },
-                    "403": {
-                        "description": ":id is not int"
                     }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "horario_grupo_espacio_academico"
-                ],
-                "description": "delete the HorarioGrupoEspacioAcademico",
-                "operationId": "HorarioGrupoEspacioAcademicoController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
+                },
                 "responses": {
                     "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/horario_semestre/": {
-            "get": {
-                "tags": [
-                    "horario_semestre"
-                ],
-                "description": "get HorarioSemestre",
-                "operationId": "HorarioSemestreController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.HorarioSemestre"
-                        }
-                    },
-                    "403": {
                         "description": ""
                     }
-                }
-            },
-            "post": {
+                },
                 "tags": [
-                    "horario_semestre"
-                ],
-                "description": "create HorarioSemestre",
-                "operationId": "HorarioSemestreController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for HorarioSemestre content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.HorarioSemestre"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.HorarioSemestre"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/horario_semestre/{id}": {
-            "get": {
-                "tags": [
-                    "horario_semestre"
-                ],
-                "description": "get HorarioSemestre by id",
-                "operationId": "HorarioSemestreController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.HorarioSemestre"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "horario_semestre"
-                ],
-                "description": "update the HorarioSemestre",
-                "operationId": "HorarioSemestreController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for HorarioSemestre content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.HorarioSemestre"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.HorarioSemestre"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
+                    "horario"
+                ]
             },
             "delete": {
-                "tags": [
-                    "horario_semestre"
-                ],
-                "description": "delete the HorarioSemestre",
-                "operationId": "HorarioSemestreController.Delete",
+                "operationId": "HorarioController_delete",
                 "parameters": [
                     {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
+                        "name": "_id",
                         "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/horario_semestre_colocacion_espacio_academico/": {
-            "get": {
-                "tags": [
-                    "horario_semestre_colocacion_espacio_academico"
-                ],
-                "description": "get HorarioSemestreColocacionEspacioAcademico",
-                "operationId": "HorarioSemestreColocacionEspacioAcademicoController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
+                        "in": "path",
                         "schema": {
-                            "$ref": "#/definitions/models.HorarioSemestreColocacionEspacioAcademico"
+                            "type": "string"
                         }
-                    },
-                    "403": {
+                    }
+                ],
+                "responses": {
+                    "200": {
                         "description": ""
                     }
-                }
-            },
-            "post": {
+                },
                 "tags": [
-                    "horario_semestre_colocacion_espacio_academico"
-                ],
-                "description": "create HorarioSemestreColocacionEspacioAcademico",
-                "operationId": "HorarioSemestreColocacionEspacioAcademicoController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for HorarioSemestreColocacionEspacioAcademico content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.HorarioSemestreColocacionEspacioAcademico"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.HorarioSemestreColocacionEspacioAcademico"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/horario_semestre_colocacion_espacio_academico/{id}": {
-            "get": {
-                "tags": [
-                    "horario_semestre_colocacion_espacio_academico"
-                ],
-                "description": "get HorarioSemestreColocacionEspacioAcademico by id",
-                "operationId": "HorarioSemestreColocacionEspacioAcademicoController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.HorarioSemestreColocacionEspacioAcademico"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "horario_semestre_colocacion_espacio_academico"
-                ],
-                "description": "update the HorarioSemestreColocacionEspacioAcademico",
-                "operationId": "HorarioSemestreColocacionEspacioAcademicoController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for HorarioSemestreColocacionEspacioAcademico content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.HorarioSemestreColocacionEspacioAcademico"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.HorarioSemestreColocacionEspacioAcademico"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "horario_semestre_colocacion_espacio_academico"
-                ],
-                "description": "delete the HorarioSemestreColocacionEspacioAcademico",
-                "operationId": "HorarioSemestreColocacionEspacioAcademicoController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
+                    "horario"
+                ]
             }
         }
     },
-    "definitions": {
-        "models.ColocacionEspacioAcademico": {
-            "title": "ColocacionEspacioAcademico",
-            "type": "object",
-            "properties": {
-                "Activo": {
-                    "type": "boolean"
-                },
-                "ColocacionEspacioAcademico": {
-                    "type": "string"
-                },
-                "EspacioAcademicoId": {
-                    "type": "string"
-                },
-                "EspacioFisicoId": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "Id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "ResumenColocacionEspacioFisico": {
-                    "type": "string"
-                }
-            }
-        },
-        "models.EstadoCreacion": {
-            "title": "EstadoCreacion",
-            "type": "object",
-            "properties": {
-                "Activo": {
-                    "type": "boolean"
-                },
-                "CodigoAbreviacion": {
-                    "type": "string"
-                },
-                "Descripcion": {
-                    "type": "string"
-                },
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "Id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "Nombre": {
-                    "type": "string"
-                }
-            }
-        },
-        "models.EstadoCreacionSemestre": {
-            "title": "EstadoCreacionSemestre",
-            "type": "object",
-            "properties": {
-                "Activo": {
-                    "type": "boolean"
-                },
-                "CodigoAbreviacion": {
-                    "type": "string"
-                },
-                "Descripcion": {
-                    "type": "string"
-                },
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "Id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "Nombre": {
-                    "type": "string"
-                }
-            }
-        },
-        "models.GrupoEspacioAcademico": {
-            "title": "GrupoEspacioAcademico",
-            "type": "object",
-            "properties": {
-                "Activo": {
-                    "type": "boolean"
-                },
-                "CodigoProyecto": {
-                    "type": "string"
-                },
-                "CuposGrupos": {
-                    "type": "number",
-                    "format": "double"
-                },
-                "EspaciosAcademicos": {
-                    "type": "string"
-                },
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "Id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "IndicadorGrupo": {
-                    "type": "string"
-                }
-            }
-        },
-        "models.Horario": {
-            "title": "Horario",
-            "type": "object",
-            "properties": {
-                "Activo": {
-                    "type": "boolean"
-                },
-                "Codigo": {
-                    "type": "string"
-                },
-                "CodigoAbrieavacion": {
-                    "type": "string"
-                },
-                "EstadoCreacionId": {
-                    "$ref": "#/definitions/models.EstadoCreacionSemestre"
-                },
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "Id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "Nombre": {
-                    "type": "string"
-                },
-                "Observacion": {
-                    "type": "string"
-                },
-                "PeriodoId": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "PlanEstudioId": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "ProyectoAcademicoId": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "Semestres": {
-                    "type": "number",
-                    "format": "double"
-                }
-            }
-        },
-        "models.HorarioGrupoEspacioAcademico": {
-            "title": "HorarioGrupoEspacioAcademico",
-            "type": "object",
-            "properties": {
-                "Activo": {
-                    "type": "boolean"
-                },
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "GrupoEspacioAcademico": {
-                    "$ref": "#/definitions/models.GrupoEspacioAcademico"
-                },
-                "HorarioSemestreId": {
-                    "$ref": "#/definitions/models.HorarioSemestre"
-                },
-                "Id": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-        },
-        "models.HorarioSemestre": {
-            "title": "HorarioSemestre",
-            "type": "object",
-            "properties": {
-                "Activo": {
-                    "type": "boolean"
-                },
-                "CodigoAbreviacion": {
-                    "type": "string"
-                },
-                "EstadoCreacionSemestreId": {
-                    "$ref": "#/definitions/models.EstadoCreacionSemestre"
-                },
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "HorarioId": {
-                    "$ref": "#/definitions/models.Horario"
-                },
-                "Id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "Nombre": {
-                    "type": "string"
-                },
-                "Observacion": {
-                    "type": "string"
-                },
-                "PeriodoId": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "SemestreId": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-        },
-        "models.HorarioSemestreColocacionEspacioAcademico": {
-            "title": "HorarioSemestreColocacionEspacioAcademico",
-            "type": "object",
-            "properties": {
-                "Activo": {
-                    "type": "boolean"
-                },
-                "ColocacionEspacioAcademicoId": {
-                    "$ref": "#/definitions/models.ColocacionEspacioAcademico"
-                },
-                "FechaCreacion": {
-                    "type": "string"
-                },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "HorarioSemestreId": {
-                    "$ref": "#/definitions/models.HorarioSemestre"
-                },
-                "Id": {
-                    "type": "integer",
-                    "format": "int64"
-                }
-            }
-        }
+    "info": {
+        "title": "Horarios_crud",
+        "description": "API CRUD para la gestion de horarios",
+        "version": "1.0",
+        "contact": {}
     },
-    "tags": [
-        {
-            "name": "estado_creacion",
-            "description": "EstadoCreacionController operations for EstadoCreacion\n"
-        },
-        {
-            "name": "horario",
-            "description": "HorarioController operations for Horario\n"
-        },
-        {
-            "name": "horario_semestre",
-            "description": "HorarioSemestreController operations for HorarioSemestre\n"
-        },
-        {
-            "name": "estado_creacion_semestre",
-            "description": "EstadoCreacionSemestreController operations for EstadoCreacionSemestre\n"
-        },
-        {
-            "name": "grupo_espacio_academico",
-            "description": "GrupoEspacioAcademicoController operations for GrupoEspacioAcademico\n"
-        },
-        {
-            "name": "horario_grupo_espacio_academico",
-            "description": "HorarioGrupoEspacioAcademicoController operations for HorarioGrupoEspacioAcademico\n"
-        },
-        {
-            "name": "horario_semestre_colocacion_espacio_academico",
-            "description": "HorarioSemestreColocacionEspacioAcademicoController operations for HorarioSemestreColocacionEspacioAcademico\n"
-        },
-        {
-            "name": "colocacion_espacio_academico",
-            "description": "ColocacionEspacioAcademicoController operations for ColocacionEspacioAcademico\n"
+    "tags": [],
+    "servers": [],
+    "components": {
+        "schemas": {
+            "ColocacionEspacioAcademicoDto": {
+                "type": "object",
+                "properties": {
+                    "EspacioAcademicoId": {
+                        "type": "string"
+                    },
+                    "EspacioFisicoId": {
+                        "type": "number"
+                    },
+                    "ColocacionEspacioAcademico": {
+                        "type": "object"
+                    },
+                    "ResumenColocacionEspacioFisico": {
+                        "type": "object"
+                    },
+                    "Activo": {
+                        "type": "boolean"
+                    },
+                    "FechaCreacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "FechaModificacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "EspacioAcademicoId",
+                    "EspacioFisicoId",
+                    "ColocacionEspacioAcademico",
+                    "ResumenColocacionEspacioFisico",
+                    "Activo",
+                    "FechaCreacion",
+                    "FechaModificacion"
+                ]
+            },
+            "EstadoCreacionSemestreDto": {
+                "type": "object",
+                "properties": {
+                    "Nombre": {
+                        "type": "string"
+                    },
+                    "Descripcion": {
+                        "type": "string"
+                    },
+                    "CodigoAbreviacion": {
+                        "type": "string"
+                    },
+                    "Activo": {
+                        "type": "boolean"
+                    },
+                    "FechaCreacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "FechaModificacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "Nombre",
+                    "Descripcion",
+                    "CodigoAbreviacion",
+                    "Activo",
+                    "FechaCreacion",
+                    "FechaModificacion"
+                ]
+            },
+            "EstadoCreacionDto": {
+                "type": "object",
+                "properties": {
+                    "Nombre": {
+                        "type": "string"
+                    },
+                    "Descripcion": {
+                        "type": "string"
+                    },
+                    "CodigoAbreviacion": {
+                        "type": "string"
+                    },
+                    "Activo": {
+                        "type": "boolean"
+                    },
+                    "FechaCreacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "FechaModificacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "Nombre",
+                    "Descripcion",
+                    "CodigoAbreviacion",
+                    "Activo",
+                    "FechaCreacion",
+                    "FechaModificacion"
+                ]
+            },
+            "GrupoEspacioAcademicoDto": {
+                "type": "object",
+                "properties": {
+                    "CodigoProyecto": {
+                        "type": "string"
+                    },
+                    "IndicadorGrupo": {
+                        "type": "string"
+                    },
+                    "CuposGrupos": {
+                        "type": "number"
+                    },
+                    "EspaciosAcademicos": {
+                        "type": "object"
+                    },
+                    "Activo": {
+                        "type": "boolean"
+                    },
+                    "FechaCreacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "FechaModificacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "CodigoProyecto",
+                    "IndicadorGrupo",
+                    "CuposGrupos",
+                    "EspaciosAcademicos",
+                    "Activo",
+                    "FechaCreacion",
+                    "FechaModificacion"
+                ]
+            },
+            "HorarioDto": {
+                "type": "object",
+                "properties": {
+                    "Nombre": {
+                        "type": "string"
+                    },
+                    "CodigoAbreviacion": {
+                        "type": "string"
+                    },
+                    "Codigo": {
+                        "type": "string"
+                    },
+                    "ProyectoAcademicoId": {
+                        "type": "number"
+                    },
+                    "PlanEstudioId": {
+                        "type": "number"
+                    },
+                    "Semestres": {
+                        "type": "number"
+                    },
+                    "PeriodoId": {
+                        "type": "number"
+                    },
+                    "EstadoCreacionId": {
+                        "$ref": "#/components/schemas/EstadoCreacionDto"
+                    },
+                    "Observacion": {
+                        "type": "string"
+                    },
+                    "Activo": {
+                        "type": "boolean"
+                    },
+                    "FechaCreacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "FechaModificacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "Nombre",
+                    "CodigoAbreviacion",
+                    "Codigo",
+                    "ProyectoAcademicoId",
+                    "PlanEstudioId",
+                    "Semestres",
+                    "PeriodoId",
+                    "EstadoCreacionId",
+                    "Observacion",
+                    "Activo",
+                    "FechaCreacion",
+                    "FechaModificacion"
+                ]
+            },
+            "HorarioSemestreDto": {
+                "type": "object",
+                "properties": {
+                    "Nombre": {
+                        "type": "string"
+                    },
+                    "CodigoAbreviacion": {
+                        "type": "string"
+                    },
+                    "SemestreId": {
+                        "type": "number"
+                    },
+                    "PeriodoId": {
+                        "type": "number"
+                    },
+                    "HorarioId": {
+                        "$ref": "#/components/schemas/HorarioDto"
+                    },
+                    "EstadoCreacionSemestreId": {
+                        "$ref": "#/components/schemas/EstadoCreacionSemestreDto"
+                    },
+                    "Observacion": {
+                        "type": "string"
+                    },
+                    "Activo": {
+                        "type": "boolean"
+                    },
+                    "FechaCreacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "FechaModificacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "Nombre",
+                    "CodigoAbreviacion",
+                    "SemestreId",
+                    "PeriodoId",
+                    "HorarioId",
+                    "EstadoCreacionSemestreId",
+                    "Observacion",
+                    "Activo",
+                    "FechaCreacion",
+                    "FechaModificacion"
+                ]
+            },
+            "HorarioSemestreColocacionEspacioAcademicoDto": {
+                "type": "object",
+                "properties": {
+                    "HorarioSemestreId": {
+                        "$ref": "#/components/schemas/HorarioSemestreDto"
+                    },
+                    "ColocacionEspacioAcademicoId": {
+                        "$ref": "#/components/schemas/ColocacionEspacioAcademicoDto"
+                    },
+                    "Activo": {
+                        "type": "boolean"
+                    },
+                    "FechaCreacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "FechaModificacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "HorarioSemestreId",
+                    "ColocacionEspacioAcademicoId",
+                    "Activo",
+                    "FechaCreacion",
+                    "FechaModificacion"
+                ]
+            },
+            "HorarioSemestreGrupoEspacioAcademicoDto": {
+                "type": "object",
+                "properties": {
+                    "HorarioSemestreId": {
+                        "$ref": "#/components/schemas/HorarioSemestreDto"
+                    },
+                    "GrupoEspacioAcademicoId": {
+                        "$ref": "#/components/schemas/GrupoEspacioAcademicoDto"
+                    },
+                    "Activo": {
+                        "type": "boolean"
+                    },
+                    "FechaCreacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "FechaModificacion": {
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "HorarioSemestreId",
+                    "GrupoEspacioAcademicoId",
+                    "Activo",
+                    "FechaCreacion",
+                    "FechaModificacion"
+                ]
+            }
         }
-    ]
+    }
 }

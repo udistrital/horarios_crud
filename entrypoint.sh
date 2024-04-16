@@ -4,9 +4,7 @@ set -e
 set -u
 set -o pipefail
 
-if [ -n "${PARAMETER_STORE:-}" ]; then
-  export HORARIOS_CRUD_PGUSER="$(aws ssm get-parameter --name /${PARAMETER_STORE}/horarios_crud/db/username --output text --query Parameter.Value)"
-  export HORARIOS_CRUD_PGPASS="$(aws ssm get-parameter --with-decryption --name /${PARAMETER_STORE}/horarios_crud/db/password --output text --query Parameter.Value)"
-fi
+export HORARIOS_CRUD_USER="$(aws ssm get-parameter --name /${PARAMETER_STORE}/horarios_mongo_crud/db/username --output text --query Parameter.Value)"
+export HORARIOS_CRUD_PASS="$(aws ssm get-parameter --with-decryption --name /${PARAMETER_STORE}/horarios_mongo_crud/db/password --output text --query Parameter.Value)"
 
-exec ./main "$@"
+exec node dist/main
