@@ -336,23 +336,23 @@ paths:
         '200':
           description: ''
       tags: *ref_2
-  /grupo-espacio-academico:
+  /grupo-estudio:
     post:
-      operationId: GrupoEspacioAcademicoController_post
+      operationId: GrupoEstudioController_post
       parameters: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/GrupoEspacioAcademicoDto'
+              $ref: '#/components/schemas/GrupoEstudioDto'
       responses:
         '201':
           description: ''
       tags: &ref_3
-        - grupo-espacio-academico
+        - grupo-estudio
     get:
-      operationId: GrupoEspacioAcademicoController_getAll
+      operationId: GrupoEstudioController_getAll
       parameters:
         - name: query
           required: false
@@ -402,9 +402,9 @@ paths:
         '200':
           description: ''
       tags: *ref_3
-  /grupo-espacio-academico/{_id}:
+  /grupo-estudio/{_id}:
     get:
-      operationId: GrupoEspacioAcademicoController_getById
+      operationId: GrupoEstudioController_getById
       parameters:
         - name: _id
           required: true
@@ -416,7 +416,7 @@ paths:
           description: ''
       tags: *ref_3
     put:
-      operationId: GrupoEspacioAcademicoController_put
+      operationId: GrupoEstudioController_put
       parameters:
         - name: _id
           required: true
@@ -428,13 +428,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/GrupoEspacioAcademicoDto'
+              $ref: '#/components/schemas/GrupoEstudioDto'
       responses:
         '200':
           description: ''
       tags: *ref_3
     delete:
-      operationId: GrupoEspacioAcademicoController_delete
+      operationId: GrupoEstudioController_delete
       parameters:
         - name: _id
           required: true
@@ -556,23 +556,23 @@ paths:
         '200':
           description: ''
       tags: *ref_4
-  /horario-semestre-grupo-espacio-academico:
+  /horario-semestre-grupo-estudio:
     post:
-      operationId: HorarioSemestreGrupoEspacioAcademicoController_post
+      operationId: HorarioSemestreGrupoEstudioController_post
       parameters: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/HorarioSemestreGrupoEspacioAcademicoDto'
+              $ref: '#/components/schemas/HorarioSemestreGrupoEstudioDto'
       responses:
         '201':
           description: ''
       tags: &ref_5
-        - horario-semestre-grupo-espacio-academico
+        - horario-semestre-grupo-estudio
     get:
-      operationId: HorarioSemestreGrupoEspacioAcademicoController_getAll
+      operationId: HorarioSemestreGrupoEstudioController_getAll
       parameters:
         - name: query
           required: false
@@ -622,9 +622,9 @@ paths:
         '200':
           description: ''
       tags: *ref_5
-  /horario-semestre-grupo-espacio-academico/{_id}:
+  /horario-semestre-grupo-estudio/{_id}:
     get:
-      operationId: HorarioSemestreGrupoEspacioAcademicoController_getById
+      operationId: HorarioSemestreGrupoEstudioController_getById
       parameters:
         - name: _id
           required: true
@@ -636,7 +636,7 @@ paths:
           description: ''
       tags: *ref_5
     put:
-      operationId: HorarioSemestreGrupoEspacioAcademicoController_put
+      operationId: HorarioSemestreGrupoEstudioController_put
       parameters:
         - name: _id
           required: true
@@ -648,13 +648,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/HorarioSemestreGrupoEspacioAcademicoDto'
+              $ref: '#/components/schemas/HorarioSemestreGrupoEstudioDto'
       responses:
         '200':
           description: ''
       tags: *ref_5
     delete:
-      operationId: HorarioSemestreGrupoEspacioAcademicoController_delete
+      operationId: HorarioSemestreGrupoEstudioController_delete
       parameters:
         - name: _id
           required: true
@@ -967,7 +967,7 @@ components:
         - Activo
         - FechaCreacion
         - FechaModificacion
-    GrupoEspacioAcademicoDto:
+    GrupoEstudioDto:
       type: object
       properties:
         CodigoProyecto:
@@ -978,6 +978,12 @@ components:
           type: number
         EspaciosAcademicos:
           type: object
+        ProyectoAcademicoId:
+          type: string
+        PlanEstudiosId:
+          type: string
+        SemestreId:
+          type: string
         Activo:
           type: boolean
         FechaCreacion:
@@ -991,6 +997,9 @@ components:
         - IndicadorGrupo
         - CuposGrupos
         - EspaciosAcademicos
+        - ProyectoAcademicoId
+        - PlanEstudiosId
+        - SemestreId
         - Activo
         - FechaCreacion
         - FechaModificacion
@@ -1093,13 +1102,13 @@ components:
         - Activo
         - FechaCreacion
         - FechaModificacion
-    HorarioSemestreGrupoEspacioAcademicoDto:
+    HorarioSemestreGrupoEstudioDto:
       type: object
       properties:
         HorarioSemestreId:
           $ref: '#/components/schemas/HorarioSemestreDto'
-        GrupoEspacioAcademicoId:
-          $ref: '#/components/schemas/GrupoEspacioAcademicoDto'
+        GrupoEstudioId:
+          $ref: '#/components/schemas/GrupoEstudioDto'
         Activo:
           type: boolean
         FechaCreacion:
@@ -1110,7 +1119,7 @@ components:
           type: string
       required:
         - HorarioSemestreId
-        - GrupoEspacioAcademicoId
+        - GrupoEstudioId
         - Activo
         - FechaCreacion
         - FechaModificacion

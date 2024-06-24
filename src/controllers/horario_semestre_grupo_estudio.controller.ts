@@ -1,24 +1,24 @@
 import { Body, Controller, Delete, Get, HttpStatus, Param, Post, Put, Query, Res } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { FilterDto } from 'src/filters/dto/filter.dto';
-import { HorarioSemestreGrupoEspacioAcademicoDto } from 'src/models/horario_semestre_grupo_espacio_academico.dtoSchema';
-import { HorarioSemestreGrupoEspacioAcademicoService } from 'src/services/horario_semestre_grupo_espacio_academico.service';
+import { HorarioSemestreGrupoEstudioDto } from 'src/models/horario_semestre_grupo_estudio.dtoSchema';
+import { HorarioSemestreGrupoEstudioService } from 'src/services/horario_semestre_grupo_estudio.service';
 
-@ApiTags('horario-semestre-grupo-espacio-academico')
-@Controller('horario-semestre-grupo-espacio-academico')
-export class HorarioSemestreGrupoEspacioAcademicoController {
+@ApiTags('horario-semestre-grupo-estudio')
+@Controller('horario-semestre-grupo-estudio')
+export class HorarioSemestreGrupoEstudioController {
     constructor(
-        private readonly horarioSemestreGrupoEspacioAcademicoService: HorarioSemestreGrupoEspacioAcademicoService
+        private readonly horarioSemestreGrupoEsptudioService: HorarioSemestreGrupoEstudioService
     ) {}
 
     @Post()
-    async post(@Res() res, @Body() horarioSemestreGrupoEspacioAcademicoDto: HorarioSemestreGrupoEspacioAcademicoDto) {
-        this.horarioSemestreGrupoEspacioAcademicoService.post(horarioSemestreGrupoEspacioAcademicoDto).then(horarioSemestreGrupoEspacioAcademico => {
+    async post(@Res() res, @Body() horarioSemestreGrupoEstudioDto: HorarioSemestreGrupoEstudioDto) {
+        this.horarioSemestreGrupoEsptudioService.post(horarioSemestreGrupoEstudioDto).then(horarioSemestreGrupoEstudio => {
             res.status(HttpStatus.CREATED).json({
                 Success: true,
                 Status: HttpStatus.CREATED,
                 Message: 'Registration successful',
-                Data: horarioSemestreGrupoEspacioAcademico
+                Data: horarioSemestreGrupoEstudio
             })
         }).catch(error => {
             res.status(HttpStatus.BAD_REQUEST).json({
@@ -32,12 +32,12 @@ export class HorarioSemestreGrupoEspacioAcademicoController {
 
     @Get()
     async getAll(@Res() res, @Query() filterDto: FilterDto) {
-        this.horarioSemestreGrupoEspacioAcademicoService.getAll(filterDto).then(horarioSemestreGrupoEspacioAcademico => {
+        this.horarioSemestreGrupoEsptudioService.getAll(filterDto).then(horarioSemestreGrupoEstudio => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
                 Message: 'Request successful',
-                Data: horarioSemestreGrupoEspacioAcademico
+                Data: horarioSemestreGrupoEstudio
             })
         }).catch(error => {
             res.status(HttpStatus.NOT_FOUND).json({
@@ -51,12 +51,12 @@ export class HorarioSemestreGrupoEspacioAcademicoController {
 
     @Get('/:_id')
     async getById(@Res() res, @Param('_id') _id: string) {
-        this.horarioSemestreGrupoEspacioAcademicoService.getById(_id).then(horarioSemestreGrupoEspacioAcademico => {
+        this.horarioSemestreGrupoEsptudioService.getById(_id).then(horarioSemestreGrupoEstudio => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
                 Message: 'Request successful',
-                Data: horarioSemestreGrupoEspacioAcademico
+                Data: horarioSemestreGrupoEstudio
             })
         }).catch(error => {
             res.status(HttpStatus.NOT_FOUND).json({
@@ -69,13 +69,13 @@ export class HorarioSemestreGrupoEspacioAcademicoController {
     }
 
     @Put('/:_id')
-    async put(@Res() res, @Param('_id') _id: string, @Body() horarioSemestreGrupoEspacioAcademicoDto: HorarioSemestreGrupoEspacioAcademicoDto) {
-        this.horarioSemestreGrupoEspacioAcademicoService.put(_id, horarioSemestreGrupoEspacioAcademicoDto).then(horarioSemestreGrupoEspacioAcademico => {
+    async put(@Res() res, @Param('_id') _id: string, @Body() horarioSemestreGrupoEstudioDto: HorarioSemestreGrupoEstudioDto) {
+        this.horarioSemestreGrupoEsptudioService.put(_id, horarioSemestreGrupoEstudioDto).then(horarioSemestreGrupoEstudio => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
                 Message: 'Update successful',
-                Data: horarioSemestreGrupoEspacioAcademico
+                Data: horarioSemestreGrupoEstudio
             })
         }).catch(error => {
             res.status(HttpStatus.BAD_REQUEST).json({
@@ -89,12 +89,12 @@ export class HorarioSemestreGrupoEspacioAcademicoController {
 
     @Delete('/:_id')
     async delete(@Res() res, @Param('_id') _id: string) {
-        this.horarioSemestreGrupoEspacioAcademicoService.delete(_id).then(horarioSemestreGrupoEspacioAcademico => {
+        this.horarioSemestreGrupoEsptudioService.delete(_id).then(horarioSemestreGrupoEstudio => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
                 Message: 'Delete successful',
-                Data: horarioSemestreGrupoEspacioAcademico
+                Data: horarioSemestreGrupoEstudio
             })
         }).catch(error => {
             res.status(HttpStatus.NOT_FOUND).json({

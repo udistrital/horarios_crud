@@ -10,12 +10,12 @@ import { EstadoCreacionSemestreController } from './controllers/estado_creacion_
 import { EstadoCreacionSemestreService } from './services/estado_creacion_semestre.service';
 import { EstadoCreacionController } from './controllers/estado_creacion.controller';
 import { EstadoCreacionService } from './services/estado_creacion.service';
-import { GrupoEspacioAcademicoController } from './controllers/grupo_espacio_academico.controller';
-import { GrupoEspacioAcademicoService } from './services/grupo_espacio_academico.service';
+import { GrupoEstudioController } from './controllers/grupo_estudio.controller';
+import { GrupoEstudioService } from './services/grupo_estudio.service';
 import { HorarioSemestreColocacionEspacioAcademicoController } from './controllers/horario_semestre_colocacion_espacio_academico.controller';
 import { HorarioSemestreColocacionEspacioAcademicoService } from './services/horario_semestre_colocacion_espacio_academico.service';
-import { HorarioSemestreGrupoEspacioAcademicoController } from './controllers/horario_semestre_grupo_espacio_academico.controller';
-import { HorarioSemestreGrupoEspacioAcademicoService } from './services/horario_semestre_grupo_espacio_academico.service'
+import { HorarioSemestreGrupoEstudioController } from './controllers/horario_semestre_grupo_estudio.controller';
+import { HorarioSemestreGrupoEstudioService } from './services/horario_semestre_grupo_estudio.service'
 import { HorarioSemestreController } from './controllers/horario_semestre.controller';
 import { HorarioSemestreService } from './services/horario_semestre.service';
 import { HorarioController } from './controllers/horario.controller';
@@ -23,9 +23,9 @@ import { HorarioService } from './services/horario.service';
 import { ColocacionEspacioAcademico, ColocacionEspacioAcademicoSchema } from './models/colocacion_espacio_academico.dtoSchema';
 import { EstadoCreacionSemestre, EstadoCreacionSemestreSchema } from './models/estado_creacion_semestre.dtoSchema';
 import { EstadoCreacion, EstadoCreacionSchema } from './models/estado_creacion.dtoSchema';
-import { GrupoEspacioAcademico, GrupoEspacioAcademicoSchema } from './models/grupo_espacio_academico.dtoSchema';
+import { GrupoEstudio, GrupoEstudioSchema } from './models/grupo_estudio.dtoSchema';
 import { HorarioSemestreColocacionEspacioAcademico, HorarioSemestreColocacionEspacioAcademicoSchema } from './models/horario_semestre_colocacion_espacio_academico.dtoSchema';
-import { HorarioSemestreGrupoEspacioAcademico, HorarioSemestreGrupoEspacioAcademicoSchema } from './models/horario_semestre_grupo_espacio_academico.dtoSchema';
+import { HorarioSemestreGrupoEstudio, HorarioSemestreGrupoEstudioSchema } from './models/horario_semestre_grupo_estudio.dtoSchema';
 import { HorarioSemestre, HorarioSemestreSchema } from './models/horario_semestre.dtoSchema';
 import { Horario, HorarioSchema } from './models/horario.dtoSchema';
 
@@ -37,8 +37,8 @@ import { Horario, HorarioSchema } from './models/horario.dtoSchema';
       { name: ColocacionEspacioAcademico.name, schema: ColocacionEspacioAcademicoSchema },
       { name: EstadoCreacionSemestre.name, schema: EstadoCreacionSemestreSchema },
       { name: EstadoCreacion.name, schema: EstadoCreacionSchema },
-      { name: GrupoEspacioAcademico.name, schema: GrupoEspacioAcademicoSchema },
-      { name: HorarioSemestreGrupoEspacioAcademico.name, schema: HorarioSemestreGrupoEspacioAcademicoSchema },
+      { name: GrupoEstudio.name, schema: GrupoEstudioSchema },
+      { name: HorarioSemestreGrupoEstudio.name, schema: HorarioSemestreGrupoEstudioSchema },
       { name: HorarioSemestreColocacionEspacioAcademico.name, schema: HorarioSemestreColocacionEspacioAcademicoSchema },
       { name: HorarioSemestre.name, schema: HorarioSemestreSchema },
       { name: Horario.name, schema: HorarioSchema },
@@ -48,18 +48,18 @@ import { Horario, HorarioSchema } from './models/horario.dtoSchema';
     ColocacionEspacioAcademicoController,
     EstadoCreacionSemestreController,
     EstadoCreacionController,
-    GrupoEspacioAcademicoController,
+    GrupoEstudioController,
     HorarioSemestreColocacionEspacioAcademicoController,
-    HorarioSemestreGrupoEspacioAcademicoController,
+    HorarioSemestreGrupoEstudioController,
     HorarioSemestreController,
     HorarioController],
   providers: [AppService,
     ColocacionEspacioAcademicoService,
     EstadoCreacionSemestreService,
     EstadoCreacionService,
-    GrupoEspacioAcademicoService,
+    GrupoEstudioService,
     HorarioSemestreColocacionEspacioAcademicoService,
-    HorarioSemestreGrupoEspacioAcademicoService,
+    HorarioSemestreGrupoEstudioService,
     HorarioSemestreService,
     HorarioService],
 })
