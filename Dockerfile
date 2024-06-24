@@ -2,7 +2,7 @@ FROM node:lts-alpine
 RUN apk update && apk add bash
 RUN apk add python3
 RUN apk add py3-pip
-RUN pip3 install awscli
+RUN pip install awscli
 
 WORKDIR /
 COPY dist dist
