@@ -1,13 +1,8 @@
-FROM node:lts-alpine
-RUN apk update && apk add bash
-RUN apk add python3
-RUN apk add py3-pip
-RUN pip3 install awscli
-
+FROM python:3
+RUN pip install awscli
 WORKDIR /
-COPY dist dist
-COPY node_modules node_modules
 COPY entrypoint.sh entrypoint.sh
-RUN chmod +x ./ entrypoint.sh
-
+COPY main main
+COPY conf/app.conf conf/app.conf
+RUN chmod +x main entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
