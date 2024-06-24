@@ -3,10 +3,10 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { FilterDto } from 'src/filters/dto/filter.dto';
 import { FiltersService } from 'src/filters/filters.service';
-import { GrupoEspacioAcademico as MainModel, GrupoEspacioAcademicoDto as MainDto } from 'src/models/grupo_espacio_academico.dtoSchema';
+import { GrupoEstudio as MainModel, GrupoEstudioDto as MainDto } from 'src/models/grupo_estudio.dtoSchema';
 
 @Injectable()
-export class GrupoEspacioAcademicoService {
+export class GrupoEstudioService {
     constructor(
         @InjectModel(MainModel.name)
         private readonly mainModel: Model<MainModel>,

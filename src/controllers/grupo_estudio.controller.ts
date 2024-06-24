@@ -1,24 +1,24 @@
 import { Body, Controller, Delete, Get, HttpStatus, Param, Post, Put, Query, Res } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { FilterDto } from 'src/filters/dto/filter.dto';
-import { GrupoEspacioAcademicoDto } from 'src/models/grupo_espacio_academico.dtoSchema';
-import { GrupoEspacioAcademicoService } from 'src/services/grupo_espacio_academico.service';
+import { GrupoEstudioDto } from 'src/models/grupo_estudio.dtoSchema';
+import { GrupoEstudioService } from 'src/services/grupo_estudio.service';
 
-@ApiTags('grupo-espacio-academico')
-@Controller('grupo-espacio-academico')
-export class GrupoEspacioAcademicoController {
+@ApiTags('grupo-estudio')
+@Controller('grupo-estudio')
+export class GrupoEstudioController {
     constructor(
-        private readonly grupoEspacioAcademicoService: GrupoEspacioAcademicoService
+        private readonly grupoEstudioService: GrupoEstudioService
     ) {}
 
     @Post()
-    async post(@Res() res, @Body() grupoEspacioAcademicoDto: GrupoEspacioAcademicoDto) {
-        this.grupoEspacioAcademicoService.post(grupoEspacioAcademicoDto).then(grupoEspacioAcademico => {
+    async post(@Res() res, @Body() grupoEstudioDto: GrupoEstudioDto) {
+        this.grupoEstudioService.post(grupoEstudioDto).then(grupoEstudio => {
             res.status(HttpStatus.CREATED).json({
                 Success: true,
                 Status: HttpStatus.CREATED,
                 Message: 'Registration successful',
-                Data: grupoEspacioAcademico
+                Data: grupoEstudio
             })
         }).catch(error => {
             res.status(HttpStatus.BAD_REQUEST).json({
@@ -32,12 +32,12 @@ export class GrupoEspacioAcademicoController {
 
     @Get()
     async getAll(@Res() res, @Query() filterDto: FilterDto) {
-        this.grupoEspacioAcademicoService.getAll(filterDto).then(grupoEspacioAcademico => {
+        this.grupoEstudioService.getAll(filterDto).then(grupoEstudio => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
                 Message: 'Request successful',
-                Data: grupoEspacioAcademico
+                Data: grupoEstudio
             })
         }).catch(error => {
             res.status(HttpStatus.NOT_FOUND).json({
@@ -51,12 +51,12 @@ export class GrupoEspacioAcademicoController {
 
     @Get('/:_id')
     async getById(@Res() res, @Param('_id') _id: string) {
-        this.grupoEspacioAcademicoService.getById(_id).then(grupoEspacioAcademico => {
+        this.grupoEstudioService.getById(_id).then(grupoEstudio => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
                 Message: 'Request successful',
-                Data: grupoEspacioAcademico
+                Data: grupoEstudio
             })
         }).catch(error => {
             res.status(HttpStatus.NOT_FOUND).json({
@@ -69,13 +69,13 @@ export class GrupoEspacioAcademicoController {
     }
 
     @Put('/:_id')
-    async put(@Res() res, @Param('_id') _id: string, @Body() grupoEspacioAcademicoDto: GrupoEspacioAcademicoDto) {
-        this.grupoEspacioAcademicoService.put(_id, grupoEspacioAcademicoDto).then(grupoEspacioAcademico => {
+    async put(@Res() res, @Param('_id') _id: string, @Body() grupoEstudioDto: GrupoEstudioDto) {
+        this.grupoEstudioService.put(_id, grupoEstudioDto).then(grupoEstudio => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
                 Message: 'Update successful',
-                Data: grupoEspacioAcademico
+                Data: grupoEstudio
             })
         }).catch(error => {
             res.status(HttpStatus.BAD_REQUEST).json({
@@ -89,12 +89,12 @@ export class GrupoEspacioAcademicoController {
 
     @Delete('/:_id')
     async delete(@Res() res, @Param('_id') _id: string) {
-        this.grupoEspacioAcademicoService.delete(_id).then(grupoEspacioAcademico => {
+        this.grupoEstudioService.delete(_id).then(grupoEstudio => {
             res.status(HttpStatus.OK).json({
                 Success: true,
                 Status: HttpStatus.OK,
                 Message: 'Delete successful',
-                Data: grupoEspacioAcademico
+                Data: grupoEstudio
             })
         }).catch(error => {
             res.status(HttpStatus.NOT_FOUND).json({

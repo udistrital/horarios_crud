@@ -3,12 +3,12 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { FilterDto } from 'src/filters/dto/filter.dto';
 import { FiltersService } from 'src/filters/filters.service';
-import { GrupoEspacioAcademico } from 'src/models/grupo_espacio_academico.dtoSchema';
-import { HorarioSemestreGrupoEspacioAcademico as MainModel, HorarioSemestreGrupoEspacioAcademicoDto as MainDto } from 'src/models/horario_semestre_grupo_espacio_academico.dtoSchema';
+import { GrupoEstudio } from 'src/models/grupo_estudio.dtoSchema';
+import { HorarioSemestreGrupoEstudio as MainModel, HorarioSemestreGrupoEstudioDto as MainDto } from 'src/models/horario_semestre_grupo_estudio.dtoSchema';
 import { HorarioSemestre } from 'src/models/horario_semestre.dtoSchema';
 
 @Injectable()
-export class HorarioSemestreGrupoEspacioAcademicoService {
+export class HorarioSemestreGrupoEstudioService {
     constructor(
         @InjectModel(MainModel.name)
         private readonly mainModel: Model<MainModel>,
@@ -16,8 +16,8 @@ export class HorarioSemestreGrupoEspacioAcademicoService {
         // ? inyectar modelos relacionados para verificar existencia y popular
         @InjectModel(HorarioSemestre.name)
         private readonly horarioSemestreModel: Model<HorarioSemestre>,
-        @InjectModel(GrupoEspacioAcademico.name)
-        private readonly grupoEspacioAcademicoModel: Model<GrupoEspacioAcademico>
+        @InjectModel(GrupoEstudio.name)
+        private readonly grupoEstudioModel: Model<GrupoEstudio>
     ) { }
 
     /**
@@ -33,10 +33,10 @@ export class HorarioSemestreGrupoEspacioAcademicoService {
                 throw new Error(`HorarioSemestreId: ${mainDto.HorarioSemestreId} doesn't exist`);
             }
         }
-        if (mainDto.GrupoEspacioAcademicoId) {
-            const grupoEspacioAcademicoId = await this.grupoEspacioAcademicoModel.exists({ _id: mainDto.GrupoEspacioAcademicoId });
-            if (!grupoEspacioAcademicoId) {
-                throw new Error(`GrupoEspacioAcademicoId: ${mainDto.GrupoEspacioAcademicoId} doesn't exist`);
+        if (mainDto.GrupoEstudioId) {
+            const grupoEstudioId = await this.grupoEstudioModel.exists({ _id: mainDto.GrupoEstudioId });
+            if (!grupoEstudioId) {
+                throw new Error(`GrupoEstudioId: ${mainDto.GrupoEstudioId} doesn't exist`);
             }
         }
     }
@@ -48,7 +48,7 @@ export class HorarioSemestreGrupoEspacioAcademicoService {
     private populatefields(): any[] {
         return [
             { path: HorarioSemestre.name + 'Id' },
-            { path: GrupoEspacioAcademico.name + 'Id' }
+            { path: GrupoEstudio.name + 'Id' }
         ]
     }
 

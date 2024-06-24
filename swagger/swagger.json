@@ -540,16 +540,16 @@
                 ]
             }
         },
-        "/grupo-espacio-academico": {
+        "/grupo-estudio": {
             "post": {
-                "operationId": "GrupoEspacioAcademicoController_post",
+                "operationId": "GrupoEstudioController_post",
                 "parameters": [],
                 "requestBody": {
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/GrupoEspacioAcademicoDto"
+                                "$ref": "#/components/schemas/GrupoEstudioDto"
                             }
                         }
                     }
@@ -560,11 +560,11 @@
                     }
                 },
                 "tags": [
-                    "grupo-espacio-academico"
+                    "grupo-estudio"
                 ]
             },
             "get": {
-                "operationId": "GrupoEspacioAcademicoController_getAll",
+                "operationId": "GrupoEstudioController_getAll",
                 "parameters": [
                     {
                         "name": "query",
@@ -636,13 +636,13 @@
                     }
                 },
                 "tags": [
-                    "grupo-espacio-academico"
+                    "grupo-estudio"
                 ]
             }
         },
-        "/grupo-espacio-academico/{_id}": {
+        "/grupo-estudio/{_id}": {
             "get": {
-                "operationId": "GrupoEspacioAcademicoController_getById",
+                "operationId": "GrupoEstudioController_getById",
                 "parameters": [
                     {
                         "name": "_id",
@@ -659,11 +659,11 @@
                     }
                 },
                 "tags": [
-                    "grupo-espacio-academico"
+                    "grupo-estudio"
                 ]
             },
             "put": {
-                "operationId": "GrupoEspacioAcademicoController_put",
+                "operationId": "GrupoEstudioController_put",
                 "parameters": [
                     {
                         "name": "_id",
@@ -679,7 +679,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/GrupoEspacioAcademicoDto"
+                                "$ref": "#/components/schemas/GrupoEstudioDto"
                             }
                         }
                     }
@@ -690,11 +690,11 @@
                     }
                 },
                 "tags": [
-                    "grupo-espacio-academico"
+                    "grupo-estudio"
                 ]
             },
             "delete": {
-                "operationId": "GrupoEspacioAcademicoController_delete",
+                "operationId": "GrupoEstudioController_delete",
                 "parameters": [
                     {
                         "name": "_id",
@@ -711,7 +711,7 @@
                     }
                 },
                 "tags": [
-                    "grupo-espacio-academico"
+                    "grupo-estudio"
                 ]
             }
         },
@@ -890,16 +890,16 @@
                 ]
             }
         },
-        "/horario-semestre-grupo-espacio-academico": {
+        "/horario-semestre-grupo-estudio": {
             "post": {
-                "operationId": "HorarioSemestreGrupoEspacioAcademicoController_post",
+                "operationId": "HorarioSemestreGrupoEstudioController_post",
                 "parameters": [],
                 "requestBody": {
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/HorarioSemestreGrupoEspacioAcademicoDto"
+                                "$ref": "#/components/schemas/HorarioSemestreGrupoEstudioDto"
                             }
                         }
                     }
@@ -910,11 +910,11 @@
                     }
                 },
                 "tags": [
-                    "horario-semestre-grupo-espacio-academico"
+                    "horario-semestre-grupo-estudio"
                 ]
             },
             "get": {
-                "operationId": "HorarioSemestreGrupoEspacioAcademicoController_getAll",
+                "operationId": "HorarioSemestreGrupoEstudioController_getAll",
                 "parameters": [
                     {
                         "name": "query",
@@ -986,13 +986,13 @@
                     }
                 },
                 "tags": [
-                    "horario-semestre-grupo-espacio-academico"
+                    "horario-semestre-grupo-estudio"
                 ]
             }
         },
-        "/horario-semestre-grupo-espacio-academico/{_id}": {
+        "/horario-semestre-grupo-estudio/{_id}": {
             "get": {
-                "operationId": "HorarioSemestreGrupoEspacioAcademicoController_getById",
+                "operationId": "HorarioSemestreGrupoEstudioController_getById",
                 "parameters": [
                     {
                         "name": "_id",
@@ -1009,11 +1009,11 @@
                     }
                 },
                 "tags": [
-                    "horario-semestre-grupo-espacio-academico"
+                    "horario-semestre-grupo-estudio"
                 ]
             },
             "put": {
-                "operationId": "HorarioSemestreGrupoEspacioAcademicoController_put",
+                "operationId": "HorarioSemestreGrupoEstudioController_put",
                 "parameters": [
                     {
                         "name": "_id",
@@ -1029,7 +1029,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/HorarioSemestreGrupoEspacioAcademicoDto"
+                                "$ref": "#/components/schemas/HorarioSemestreGrupoEstudioDto"
                             }
                         }
                     }
@@ -1040,11 +1040,11 @@
                     }
                 },
                 "tags": [
-                    "horario-semestre-grupo-espacio-academico"
+                    "horario-semestre-grupo-estudio"
                 ]
             },
             "delete": {
-                "operationId": "HorarioSemestreGrupoEspacioAcademicoController_delete",
+                "operationId": "HorarioSemestreGrupoEstudioController_delete",
                 "parameters": [
                     {
                         "name": "_id",
@@ -1061,7 +1061,7 @@
                     }
                 },
                 "tags": [
-                    "horario-semestre-grupo-espacio-academico"
+                    "horario-semestre-grupo-estudio"
                 ]
             }
         },
@@ -1529,7 +1529,7 @@
                     "FechaModificacion"
                 ]
             },
-            "GrupoEspacioAcademicoDto": {
+            "GrupoEstudioDto": {
                 "type": "object",
                 "properties": {
                     "CodigoProyecto": {
@@ -1543,6 +1543,15 @@
                     },
                     "EspaciosAcademicos": {
                         "type": "object"
+                    },
+                    "ProyectoAcademicoId": {
+                        "type": "string"
+                    },
+                    "PlanEstudiosId": {
+                        "type": "string"
+                    },
+                    "SemestreId": {
+                        "type": "string"
                     },
                     "Activo": {
                         "type": "boolean"
@@ -1561,6 +1570,9 @@
                     "IndicadorGrupo",
                     "CuposGrupos",
                     "EspaciosAcademicos",
+                    "ProyectoAcademicoId",
+                    "PlanEstudiosId",
+                    "SemestreId",
                     "Activo",
                     "FechaCreacion",
                     "FechaModificacion"
@@ -1701,14 +1713,14 @@
                     "FechaModificacion"
                 ]
             },
-            "HorarioSemestreGrupoEspacioAcademicoDto": {
+            "HorarioSemestreGrupoEstudioDto": {
                 "type": "object",
                 "properties": {
                     "HorarioSemestreId": {
                         "$ref": "#/components/schemas/HorarioSemestreDto"
                     },
-                    "GrupoEspacioAcademicoId": {
-                        "$ref": "#/components/schemas/GrupoEspacioAcademicoDto"
+                    "GrupoEstudioId": {
+                        "$ref": "#/components/schemas/GrupoEstudioDto"
                     },
                     "Activo": {
                         "type": "boolean"
@@ -1724,7 +1736,7 @@
                 },
                 "required": [
                     "HorarioSemestreId",
-                    "GrupoEspacioAcademicoId",
+                    "GrupoEstudioId",
                     "Activo",
                     "FechaCreacion",
                     "FechaModificacion"

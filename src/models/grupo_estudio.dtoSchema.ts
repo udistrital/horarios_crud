@@ -1,7 +1,7 @@
 
 import { ApiProperty } from '@nestjs/swagger';
 
-export class GrupoEspacioAcademicoDto {
+export class GrupoEstudioDto {
 
     readonly _id: string;
 
@@ -18,6 +18,15 @@ export class GrupoEspacioAcademicoDto {
     readonly EspaciosAcademicos: object;
 
     @ApiProperty()
+    readonly ProyectoAcademicoId: string;
+
+    @ApiProperty()
+    readonly PlanEstudiosId: string
+
+    @ApiProperty()
+    readonly SemestreId: string
+
+    @ApiProperty()
     Activo: boolean;
 
     @ApiProperty()
@@ -31,8 +40,8 @@ export class GrupoEspacioAcademicoDto {
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
 
-@Schema({ collection: 'grupo_espacio_academico' })
-export class GrupoEspacioAcademico extends Document {
+@Schema({ collection: 'grupo_estudio' })
+export class GrupoEstudio extends Document {
 
     _id: string;
 
@@ -44,6 +53,15 @@ export class GrupoEspacioAcademico extends Document {
 
     @Prop({ required: true })
     CuposGrupos: number;
+
+    @Prop({ required: true })
+    ProyectoAcademicoId: string;
+
+    @Prop({ required: true })
+    PlanEstudiosId: string;
+
+    @Prop({ required: true })
+    SemestreId: string;
 
     @Prop({ type: Object })
     EspaciosAcademicos: object;
@@ -58,4 +76,4 @@ export class GrupoEspacioAcademico extends Document {
     FechaModificacion: Date;
 }
 
-export const GrupoEspacioAcademicoSchema = SchemaFactory.createForClass(GrupoEspacioAcademico);
+export const GrupoEstudioSchema = SchemaFactory.createForClass(GrupoEstudio);
