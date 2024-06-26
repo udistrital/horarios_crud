@@ -2,6 +2,7 @@
 /dist
 /node_modules
 /build
+horarios_crud.exe
 
 # Logs
 logs
