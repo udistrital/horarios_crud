@@ -21,8 +21,8 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
 
-  fs.writeFileSync('./swagger/swagger.json', JSON.stringify(document, null, 4));
-  fs.writeFileSync('./swagger/swagger.yml', yaml.dump(document));
+  fs.writeFileSync('../swagger/swagger.json', JSON.stringify(document, null, 4));
+  fs.writeFileSync('../swagger/swagger.yml', yaml.dump(document));
   SwaggerModule.setup('swagger', app, document);
 
   await app.listen(parseInt(environment.HTTP_PORT, 10) || 8080);
