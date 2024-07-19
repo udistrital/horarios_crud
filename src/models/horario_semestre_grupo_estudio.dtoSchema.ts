@@ -2,6 +2,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { HorarioSemestre, HorarioSemestreDto } from './horario_semestre.dtoSchema';
 import { GrupoEstudio, GrupoEstudioDto } from './grupo_estudio.dtoSchema';
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Document, Schema as MongooseSchema } from "mongoose";
 
 export class HorarioSemestreGrupoEstudioDto {
 
@@ -23,9 +25,6 @@ export class HorarioSemestreGrupoEstudioDto {
     FechaModificacion: Date;
 
 }
-
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Document, Schema as MongooseSchema } from "mongoose";
 
 @Schema({ collection: 'horario_semestre_grupo_espacio_academico' })
 export class HorarioSemestreGrupoEstudio extends Document {

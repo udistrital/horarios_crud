@@ -1,6 +1,7 @@
-
 import { ApiProperty } from '@nestjs/swagger';
 import { EstadoCreacion, EstadoCreacionDto } from './estado_creacion.dtoSchema';
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Document, Schema as MongooseSchema } from "mongoose";
 
 // ? Para estructura documentación del swagger
 export class HorarioDto {
@@ -45,9 +46,6 @@ export class HorarioDto {
     FechaModificacion: Date;
 
 }
-
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Document, Schema as MongooseSchema } from "mongoose";
 
 // ? Para definición de modelo en base de datos
 @Schema({ collection: 'horario' })

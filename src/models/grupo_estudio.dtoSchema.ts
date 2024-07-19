@@ -1,5 +1,7 @@
 
 import { ApiProperty } from '@nestjs/swagger';
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Document } from "mongoose";
 
 export class GrupoEstudioDto {
 
@@ -36,9 +38,6 @@ export class GrupoEstudioDto {
     FechaModificacion: Date;
 
 }
-
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Document } from "mongoose";
 
 @Schema({ collection: 'grupo_estudio' })
 export class GrupoEstudio extends Document {
