@@ -445,115 +445,6 @@ paths:
         '200':
           description: ''
       tags: *ref_3
-  /horario-semestre-grupo-estudio:
-    post:
-      operationId: HorarioSemestreGrupoEstudioController_post
-      parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/HorarioSemestreGrupoEstudioDto'
-      responses:
-        '201':
-          description: ''
-      tags: &ref_4
-        - horario-semestre-grupo-estudio
-    get:
-      operationId: HorarioSemestreGrupoEstudioController_getAll
-      parameters:
-        - name: query
-          required: false
-          in: query
-          description: query - Filter. e.g. col1:v1,col2:v2 …
-          schema:
-            type: string
-        - name: fields
-          required: false
-          in: query
-          description: fields - Fields returned. e.g. col1,col2 …
-          schema:
-            type: string
-        - name: sortby
-          required: false
-          in: query
-          description: sortby - Sorted-by fields. e.g. col1,col2 …
-          schema:
-            type: string
-        - name: order
-          required: false
-          in: query
-          description: >-
-            order - Order corresponding to each sortby field, if single value,
-            apply to all sortby fields. e.g. desc,asc …
-          schema:
-            type: string
-        - name: limit
-          required: false
-          in: query
-          description: limit - Limit the size of result set. Must be an integer
-          schema:
-            type: string
-        - name: offset
-          required: false
-          in: query
-          description: offset - Start position of result set. Must be an integer
-          schema:
-            type: string
-        - name: populate
-          required: false
-          in: query
-          description: populate - show subqueries. Must be a boolean
-          schema:
-            type: string
-      responses:
-        '200':
-          description: ''
-      tags: *ref_4
-  /horario-semestre-grupo-estudio/{_id}:
-    get:
-      operationId: HorarioSemestreGrupoEstudioController_getById
-      parameters:
-        - name: _id
-          required: true
-          in: path
-          schema:
-            type: string
-      responses:
-        '200':
-          description: ''
-      tags: *ref_4
-    put:
-      operationId: HorarioSemestreGrupoEstudioController_put
-      parameters:
-        - name: _id
-          required: true
-          in: path
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/HorarioSemestreGrupoEstudioDto'
-      responses:
-        '200':
-          description: ''
-      tags: *ref_4
-    delete:
-      operationId: HorarioSemestreGrupoEstudioController_delete
-      parameters:
-        - name: _id
-          required: true
-          in: path
-          schema:
-            type: string
-      responses:
-        '200':
-          description: ''
-      tags: *ref_4
   /horario-semestre:
     post:
       operationId: HorarioSemestreController_post
@@ -567,7 +458,7 @@ paths:
       responses:
         '201':
           description: ''
-      tags: &ref_5
+      tags: &ref_4
         - horario-semestre
     get:
       operationId: HorarioSemestreController_getAll
@@ -619,7 +510,7 @@ paths:
       responses:
         '200':
           description: ''
-      tags: *ref_5
+      tags: *ref_4
   /horario-semestre/{_id}:
     get:
       operationId: HorarioSemestreController_getById
@@ -632,7 +523,7 @@ paths:
       responses:
         '200':
           description: ''
-      tags: *ref_5
+      tags: *ref_4
     put:
       operationId: HorarioSemestreController_put
       parameters:
@@ -650,7 +541,7 @@ paths:
       responses:
         '200':
           description: ''
-      tags: *ref_5
+      tags: *ref_4
     delete:
       operationId: HorarioSemestreController_delete
       parameters:
@@ -662,7 +553,7 @@ paths:
       responses:
         '200':
           description: ''
-      tags: *ref_5
+      tags: *ref_4
   /horario:
     post:
       operationId: HorarioController_post
@@ -676,7 +567,7 @@ paths:
       responses:
         '201':
           description: ''
-      tags: &ref_6
+      tags: &ref_5
         - horario
     get:
       operationId: HorarioController_getAll
@@ -728,7 +619,7 @@ paths:
       responses:
         '200':
           description: ''
-      tags: *ref_6
+      tags: *ref_5
   /horario/{_id}:
     get:
       operationId: HorarioController_getById
@@ -741,7 +632,7 @@ paths:
       responses:
         '200':
           description: ''
-      tags: *ref_6
+      tags: *ref_5
     put:
       operationId: HorarioController_put
       parameters:
@@ -759,7 +650,7 @@ paths:
       responses:
         '200':
           description: ''
-      tags: *ref_6
+      tags: *ref_5
     delete:
       operationId: HorarioController_delete
       parameters:
@@ -771,7 +662,7 @@ paths:
       responses:
         '200':
           description: ''
-      tags: *ref_6
+      tags: *ref_5
 info:
   title: Horarios_crud
   description: API CRUD para la gestion de horarios
@@ -948,12 +839,8 @@ components:
           type: number
         EspaciosAcademicos:
           type: object
-        ProyectoAcademicoId:
-          type: string
-        PlanEstudiosId:
-          type: string
-        SemestreId:
-          type: string
+        HorarioSemestreId:
+          $ref: '#/components/schemas/HorarioSemestreDto'
         Activo:
           type: boolean
         FechaCreacion:
@@ -967,30 +854,7 @@ components:
         - IndicadorGrupo
         - CuposGrupos
         - EspaciosAcademicos
-        - ProyectoAcademicoId
-        - PlanEstudiosId
-        - SemestreId
-        - Activo
-        - FechaCreacion
-        - FechaModificacion
-    HorarioSemestreGrupoEstudioDto:
-      type: object
-      properties:
-        HorarioSemestreId:
-          $ref: '#/components/schemas/HorarioSemestreDto'
-        GrupoEstudioId:
-          $ref: '#/components/schemas/GrupoEstudioDto'
-        Activo:
-          type: boolean
-        FechaCreacion:
-          format: date-time
-          type: string
-        FechaModificacion:
-          format: date-time
-          type: string
-      required:
         - HorarioSemestreId
-        - GrupoEstudioId
         - Activo
         - FechaCreacion
         - FechaModificacion

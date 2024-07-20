@@ -1,7 +1,8 @@
 
 import { ApiProperty } from '@nestjs/swagger';
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Document } from "mongoose";
+import { Document, Schema as MongooseSchema } from "mongoose";
+import { HorarioSemestre, HorarioSemestreDto } from './horario_semestre.dtoSchema';
 
 export class GrupoEstudioDto {
 
@@ -20,13 +21,7 @@ export class GrupoEstudioDto {
     readonly EspaciosAcademicos: object;
 
     @ApiProperty()
-    readonly ProyectoAcademicoId: string;
-
-    @ApiProperty()
-    readonly PlanEstudiosId: string
-
-    @ApiProperty()
-    readonly SemestreId: string
+    readonly HorarioSemestreId: HorarioSemestreDto;
 
     @ApiProperty()
     Activo: boolean;
@@ -53,14 +48,8 @@ export class GrupoEstudio extends Document {
     @Prop({ required: true })
     CuposGrupos: number;
 
-    @Prop({ required: true })
-    ProyectoAcademicoId: string;
-
-    @Prop({ required: true })
-    PlanEstudiosId: string;
-
-    @Prop({ required: true })
-    SemestreId: string;
+    @Prop({ required: true, type: MongooseSchema.Types.ObjectId, ref: HorarioSemestre.name })
+    HorarioSemestreId: HorarioSemestre;
 
     @Prop({ type: Object })
     EspaciosAcademicos: object;
