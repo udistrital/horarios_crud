@@ -715,181 +715,6 @@
                 ]
             }
         },
-        "/horario-semestre": {
-            "post": {
-                "operationId": "HorarioSemestreController_post",
-                "parameters": [],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/HorarioSemestreDto"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "horario-semestre"
-                ]
-            },
-            "get": {
-                "operationId": "HorarioSemestreController_getAll",
-                "parameters": [
-                    {
-                        "name": "query",
-                        "required": false,
-                        "in": "query",
-                        "description": "query - Filter. e.g. col1:v1,col2:v2 …",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "fields",
-                        "required": false,
-                        "in": "query",
-                        "description": "fields - Fields returned. e.g. col1,col2 …",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "sortby",
-                        "required": false,
-                        "in": "query",
-                        "description": "sortby - Sorted-by fields. e.g. col1,col2 …",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "order",
-                        "required": false,
-                        "in": "query",
-                        "description": "order - Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc …",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "limit",
-                        "required": false,
-                        "in": "query",
-                        "description": "limit - Limit the size of result set. Must be an integer",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "offset",
-                        "required": false,
-                        "in": "query",
-                        "description": "offset - Start position of result set. Must be an integer",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "populate",
-                        "required": false,
-                        "in": "query",
-                        "description": "populate - show subqueries. Must be a boolean",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "horario-semestre"
-                ]
-            }
-        },
-        "/horario-semestre/{_id}": {
-            "get": {
-                "operationId": "HorarioSemestreController_getById",
-                "parameters": [
-                    {
-                        "name": "_id",
-                        "required": true,
-                        "in": "path",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "horario-semestre"
-                ]
-            },
-            "put": {
-                "operationId": "HorarioSemestreController_put",
-                "parameters": [
-                    {
-                        "name": "_id",
-                        "required": true,
-                        "in": "path",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/HorarioSemestreDto"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "horario-semestre"
-                ]
-            },
-            "delete": {
-                "operationId": "HorarioSemestreController_delete",
-                "parameters": [
-                    {
-                        "name": "_id",
-                        "required": true,
-                        "in": "path",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "horario-semestre"
-                ]
-            }
-        },
         "/horario": {
             "post": {
                 "operationId": "HorarioController_post",
@@ -1199,19 +1024,22 @@
                     "FechaModificacion"
                 ]
             },
-            "HorarioSemestreDto": {
+            "GrupoEstudioDto": {
                 "type": "object",
                 "properties": {
-                    "Nombre": {
+                    "CodigoProyecto": {
                         "type": "string"
                     },
-                    "CodigoAbreviacion": {
+                    "IndicadorGrupo": {
                         "type": "string"
                     },
-                    "SemestreId": {
+                    "CuposGrupos": {
                         "type": "number"
                     },
-                    "PeriodoId": {
+                    "EspaciosAcademicos": {
+                        "type": "object"
+                    },
+                    "SemestreId": {
                         "type": "number"
                     },
                     "HorarioId": {
@@ -1236,10 +1064,11 @@
                     }
                 },
                 "required": [
-                    "Nombre",
-                    "CodigoAbreviacion",
+                    "CodigoProyecto",
+                    "IndicadorGrupo",
+                    "CuposGrupos",
+                    "EspaciosAcademicos",
                     "SemestreId",
-                    "PeriodoId",
                     "HorarioId",
                     "EstadoCreacionSemestreId",
                     "Observacion",
@@ -1263,8 +1092,8 @@
                     "ResumenColocacionEspacioFisico": {
                         "type": "object"
                     },
-                    "HorarioSemestreId": {
-                        "$ref": "#/components/schemas/HorarioSemestreDto"
+                    "GrupoEstudioId": {
+                        "$ref": "#/components/schemas/GrupoEstudioDto"
                     },
                     "Activo": {
                         "type": "boolean"
@@ -1283,48 +1112,7 @@
                     "EspacioFisicoId",
                     "ColocacionEspacioAcademico",
                     "ResumenColocacionEspacioFisico",
-                    "HorarioSemestreId",
-                    "Activo",
-                    "FechaCreacion",
-                    "FechaModificacion"
-                ]
-            },
-            "GrupoEstudioDto": {
-                "type": "object",
-                "properties": {
-                    "CodigoProyecto": {
-                        "type": "string"
-                    },
-                    "IndicadorGrupo": {
-                        "type": "string"
-                    },
-                    "CuposGrupos": {
-                        "type": "number"
-                    },
-                    "EspaciosAcademicos": {
-                        "type": "object"
-                    },
-                    "HorarioSemestreId": {
-                        "$ref": "#/components/schemas/HorarioSemestreDto"
-                    },
-                    "Activo": {
-                        "type": "boolean"
-                    },
-                    "FechaCreacion": {
-                        "format": "date-time",
-                        "type": "string"
-                    },
-                    "FechaModificacion": {
-                        "format": "date-time",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "CodigoProyecto",
-                    "IndicadorGrupo",
-                    "CuposGrupos",
-                    "EspaciosAcademicos",
-                    "HorarioSemestreId",
+                    "GrupoEstudioId",
                     "Activo",
                     "FechaCreacion",
                     "FechaModificacion"
