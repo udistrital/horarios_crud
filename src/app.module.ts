@@ -12,21 +12,12 @@ import { EstadoCreacionController } from './controllers/estado_creacion.controll
 import { EstadoCreacionService } from './services/estado_creacion.service';
 import { GrupoEstudioController } from './controllers/grupo_estudio.controller';
 import { GrupoEstudioService } from './services/grupo_estudio.service';
-import { HorarioSemestreColocacionEspacioAcademicoController } from './controllers/horario_semestre_colocacion_espacio_academico.controller';
-import { HorarioSemestreColocacionEspacioAcademicoService } from './services/horario_semestre_colocacion_espacio_academico.service';
-import { HorarioSemestreGrupoEstudioController } from './controllers/horario_semestre_grupo_estudio.controller';
-import { HorarioSemestreGrupoEstudioService } from './services/horario_semestre_grupo_estudio.service'
-import { HorarioSemestreController } from './controllers/horario_semestre.controller';
-import { HorarioSemestreService } from './services/horario_semestre.service';
 import { HorarioController } from './controllers/horario.controller';
 import { HorarioService } from './services/horario.service';
 import { ColocacionEspacioAcademico, ColocacionEspacioAcademicoSchema } from './models/colocacion_espacio_academico.dtoSchema';
 import { EstadoCreacionSemestre, EstadoCreacionSemestreSchema } from './models/estado_creacion_semestre.dtoSchema';
 import { EstadoCreacion, EstadoCreacionSchema } from './models/estado_creacion.dtoSchema';
 import { GrupoEstudio, GrupoEstudioSchema } from './models/grupo_estudio.dtoSchema';
-import { HorarioSemestreColocacionEspacioAcademico, HorarioSemestreColocacionEspacioAcademicoSchema } from './models/horario_semestre_colocacion_espacio_academico.dtoSchema';
-import { HorarioSemestreGrupoEstudio, HorarioSemestreGrupoEstudioSchema } from './models/horario_semestre_grupo_estudio.dtoSchema';
-import { HorarioSemestre, HorarioSemestreSchema } from './models/horario_semestre.dtoSchema';
 import { Horario, HorarioSchema } from './models/horario.dtoSchema';
 
 @Module({
@@ -38,9 +29,6 @@ import { Horario, HorarioSchema } from './models/horario.dtoSchema';
       { name: EstadoCreacionSemestre.name, schema: EstadoCreacionSemestreSchema },
       { name: EstadoCreacion.name, schema: EstadoCreacionSchema },
       { name: GrupoEstudio.name, schema: GrupoEstudioSchema },
-      { name: HorarioSemestreGrupoEstudio.name, schema: HorarioSemestreGrupoEstudioSchema },
-      { name: HorarioSemestreColocacionEspacioAcademico.name, schema: HorarioSemestreColocacionEspacioAcademicoSchema },
-      { name: HorarioSemestre.name, schema: HorarioSemestreSchema },
       { name: Horario.name, schema: HorarioSchema },
     ])
   ],
@@ -49,18 +37,12 @@ import { Horario, HorarioSchema } from './models/horario.dtoSchema';
     EstadoCreacionSemestreController,
     EstadoCreacionController,
     GrupoEstudioController,
-    HorarioSemestreColocacionEspacioAcademicoController,
-    HorarioSemestreGrupoEstudioController,
-    HorarioSemestreController,
     HorarioController],
   providers: [AppService,
     ColocacionEspacioAcademicoService,
     EstadoCreacionSemestreService,
     EstadoCreacionService,
     GrupoEstudioService,
-    HorarioSemestreColocacionEspacioAcademicoService,
-    HorarioSemestreGrupoEstudioService,
-    HorarioSemestreService,
     HorarioService],
 })
 export class AppModule {

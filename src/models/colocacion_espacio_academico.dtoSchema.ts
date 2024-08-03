@@ -1,4 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Document, Schema as MongooseSchema } from "mongoose";
+import { GrupoEstudio, GrupoEstudioDto } from './grupo_estudio.dtoSchema';
 
 export class ColocacionEspacioAcademicoDto {
 
@@ -17,6 +20,9 @@ export class ColocacionEspacioAcademicoDto {
     readonly ResumenColocacionEspacioFisico: object;
 
     @ApiProperty()
+    readonly GrupoEstudioId: GrupoEstudioDto;
+
+    @ApiProperty()
     Activo: boolean;
 
     @ApiProperty()
@@ -26,9 +32,6 @@ export class ColocacionEspacioAcademicoDto {
     FechaModificacion: Date;
 
 }
-
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Document } from "mongoose";
 
 @Schema({ collection: 'colocacion_espacio_academico' })
 export class ColocacionEspacioAcademico extends Document {
@@ -46,6 +49,9 @@ export class ColocacionEspacioAcademico extends Document {
 
     @Prop({ type: Object })
     ResumenColocacionEspacioFisico: object;
+
+    @Prop({ required: false, type: MongooseSchema.Types.ObjectId, ref: GrupoEstudio.name })
+    GrupoEstudioId: GrupoEstudio;
 
     @Prop({ required: true })
     Activo: boolean;

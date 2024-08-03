@@ -1,5 +1,7 @@
 
 import { ApiProperty } from '@nestjs/swagger';
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Document } from "mongoose";
 
 export class EstadoCreacionSemestreDto {
 
@@ -24,9 +26,6 @@ export class EstadoCreacionSemestreDto {
     FechaModificacion: Date;
 
 }
-
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Document } from "mongoose";
 
 @Schema({ collection: 'estado_creacion_semestre' })
 export class EstadoCreacionSemestre extends Document {
