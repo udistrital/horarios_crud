@@ -705,6 +705,8 @@ components:
           type: object
         GrupoEstudioId:
           $ref: '#/components/schemas/GrupoEstudioDto'
+        PeriodoId:
+          type: number
         Activo:
           type: boolean
         FechaCreacion:
@@ -719,6 +721,7 @@ components:
         - ColocacionEspacioAcademico
         - ResumenColocacionEspacioFisico
         - GrupoEstudioId
+        - PeriodoId
         - Activo
         - FechaCreacion
         - FechaModificacion

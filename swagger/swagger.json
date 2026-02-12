@@ -1095,6 +1095,9 @@
                     "GrupoEstudioId": {
                         "$ref": "#/components/schemas/GrupoEstudioDto"
                     },
+                    "PeriodoId": {
+                        "type": "number"
+                    },
                     "Activo": {
                         "type": "boolean"
                     },
@@ -1113,6 +1116,7 @@
                     "ColocacionEspacioAcademico",
                     "ResumenColocacionEspacioFisico",
                     "GrupoEstudioId",
+                    "PeriodoId",
                     "Activo",
                     "FechaCreacion",
                     "FechaModificacion"
