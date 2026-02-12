@@ -4,6 +4,9 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { environment } from './config/configuration';
 import { LoggerMiddleware } from './logger/logger';
+import { ParameterStoreModule } from './config/parameter_store.module';
+import { ParameterStoreService } from './config/parameter_store.service';
+
 import { ColocacionEspacioAcademicoController } from './controllers/colocacion_espacio_academico.controller';
 import { ColocacionEspacioAcademicoService } from './services/colocacion_espacio_academico.service';
 import { EstadoCreacionSemestreController } from './controllers/estado_creacion_semestre.controller';
@@ -22,6 +25,7 @@ import { Horario, HorarioSchema } from './models/horario.dtoSchema';
 
 @Module({
   imports: [
+    ParameterStoreModule,
     MongooseModule.forRoot(`mongodb://${environment.USER}:${environment.PASS}@` +
       `${environment.HOST}:${environment.PORT}/${environment.DB}?authSource=${environment.AUTH_DB}`),
     MongooseModule.forFeature([
