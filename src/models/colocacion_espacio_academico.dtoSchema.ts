@@ -6,11 +6,11 @@ import { GrupoEstudio, GrupoEstudioDto } from './grupo_estudio.dtoSchema';
 export class ColocacionEspacioAcademicoDto {
   readonly _id: string;
 
-  @ApiProperty()
+  @ApiProperty() 
   readonly EspacioAcademicoId: string;
 
   @ApiProperty()
-  readonly EspacioFisicoId: number;
+  readonly EspacioFisicoId: string;
 
   @ApiProperty()
   readonly ColocacionEspacioAcademico: object;
@@ -42,7 +42,7 @@ export class ColocacionEspacioAcademico extends Document {
   EspacioAcademicoId: string;
 
   @Prop({ required: true })
-  EspacioFisicoId: number;
+  EspacioFisicoId: string;
 
   @Prop({ type: Object })
   ColocacionEspacioAcademico: object;
