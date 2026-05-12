@@ -6,7 +6,7 @@ import { GrupoEstudio, GrupoEstudioDto } from './grupo_estudio.dtoSchema';
 export class ColocacionEspacioAcademicoDto {
   readonly _id: string;
 
-  @ApiProperty()
+  @ApiProperty() 
   readonly EspacioAcademicoId: string;
 
   @ApiProperty()
