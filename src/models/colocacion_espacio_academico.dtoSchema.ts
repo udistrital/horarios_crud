@@ -10,7 +10,7 @@ export class ColocacionEspacioAcademicoDto {
   readonly EspacioAcademicoId: string;
 
   @ApiProperty()
-  readonly EspacioFisicoId: number;
+  readonly EspacioFisicoId: string;
 
   @ApiProperty()
   readonly ColocacionEspacioAcademico: object;
@@ -42,7 +42,7 @@ export class ColocacionEspacioAcademico extends Document {
   EspacioAcademicoId: string;
 
   @Prop({ required: true })
-  EspacioFisicoId: number;
+  EspacioFisicoId: string;
 
   @Prop({ type: Object })
   ColocacionEspacioAcademico: object;
