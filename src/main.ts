@@ -1,30 +1,50 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as fs from 'fs';
-import { environment } from './config/configuration';
-import { GlobalExceptionFilter } from './errorhandler/error';
-import * as yaml from 'js-yaml';
+import { SSMClient, GetParameterCommand } from '@aws-sdk/client-ssm';
+
+async function loadSsmParameters() {
+  const parameterStore = process.env.PARAMETER_STORE;
+  if (!parameterStore) return;
+
+  const client = new SSMClient({});
+
+  const [userRes, passRes] = await Promise.all([
+    client.send(
+      new GetParameterCommand({
+        Name: `/${parameterStore}/horarios_crud/db/username`,
+      }),
+    ),
+    client.send(
+      new GetParameterCommand({
+        Name: `/${parameterStore}/horarios_crud/db/password`,
+        WithDecryption: true,
+      }),
+    ),
+  ]);
+
+  process.env.HORARIOS_CRUD_USER = userRes.Parameter!.Value!;
+  process.env.HORARIOS_CRUD_PASS = passRes.Parameter!.Value!;
+}
 
 async function bootstrap() {
+  await loadSsmParameters();
+
   const app = await NestFactory.create(AppModule);
 
-  app.useGlobalFilters(new GlobalExceptionFilter());
-  
   app.enableCors();
 
   const config = new DocumentBuilder()
-    .setTitle('Horarios_crud')
-    .setDescription('API CRUD para la gestion de horarios')
-    .setVersion('1.0')
+    .setTitle('Horarios CRUD')
+    .setDescription('API CRUD para la gestión de los horarios')
+    .setVersion('0.1.0')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-
-  fs.writeFileSync('../swagger/swagger.json', JSON.stringify(document, null, 4));
-  fs.writeFileSync('../swagger/swagger.yml', yaml.dump(document));
+  fs.writeFileSync('./swagger.json', JSON.stringify(document, null, 2));
   SwaggerModule.setup('swagger', app, document);
 
-  await app.listen(parseInt(environment.HTTP_PORT, 10) || 8080);
+  await app.listen(8080);
 }
 bootstrap();
