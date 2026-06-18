@@ -2,7 +2,7 @@ import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { environment } from './config/configuration';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { LoggerMiddleware } from './logger/logger';
 import { ColocacionEspacioAcademicoController } from './controllers/colocacion_espacio_academico.controller';
 import { ColocacionEspacioAcademicoService } from './services/colocacion_espacio_academico.service';
@@ -22,8 +22,29 @@ import { Horario, HorarioSchema } from './models/horario.dtoSchema';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(`mongodb://${environment.USER}:${environment.PASS}@` +
-      `${environment.HOST}:${environment.PORT}/${environment.DB}?authSource=${environment.AUTH_DB}`),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => {
+        const user = encodeURIComponent(
+          configService.get<string>('HORARIOS_CRUD_USER'),
+        );
+        const pass = encodeURIComponent(
+          configService.get<string>('HORARIOS_CRUD_PASS'),
+        );
+        const host = configService.get<string>('HORARIOS_CRUD_HOST');
+        const port = configService.get<string>('HORARIOS_CRUD_PORT');
+        const db = configService.get<string>('HORARIOS_CRUD_DB');
+        const authDb = configService.get<string>('HORARIOS_CRUD_AUTH_DB');
+
+        return {
+          uri: 'mongodb://' + user + ':' + pass + '@' + host + ':' + port + '/' + db + '?authSource=' + authDb,
+        };
+      },
+      inject: [ConfigService],
+    }),
     MongooseModule.forFeature([
       { name: ColocacionEspacioAcademico.name, schema: ColocacionEspacioAcademicoSchema },
       { name: EstadoCreacionSemestre.name, schema: EstadoCreacionSemestreSchema },
