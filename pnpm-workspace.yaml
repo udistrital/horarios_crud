@@ -1,6 +1,6 @@
 packages:
   - .
 
-ignoredBuiltDependencies:
-  - '@nestjs/core'
-  - '@scarf/scarf'
+allowBuilds:
+  '@nestjs/core': false
+  '@scarf/scarf': false
