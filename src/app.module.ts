@@ -40,7 +40,7 @@ import { Horario, HorarioSchema } from './models/horario.dtoSchema';
         const authDb = configService.get<string>('HORARIOS_CRUD_AUTH_DB');
 
         return {
-          uri: 'mongodb://' + user + ':' + pass + '@' + host + ':' + port + '/' + db + '?authSource=' + authDb,
+          uri: `mongodb://${user}:${pass}@${host}:${port}/${db}?authSource=${authDb}`,
         };
       },
       inject: [ConfigService],
