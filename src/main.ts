@@ -26,6 +26,8 @@ async function loadSsmParameters() {
 
   process.env.HORARIOS_CRUD_USER = userRes.Parameter!.Value!;
   process.env.HORARIOS_CRUD_PASS = passRes.Parameter!.Value!;
+  console.log(JSON.stringify(userRes.Parameter?.Value));
+  console.log(JSON.stringify(passRes.Parameter?.Value));
 }
 
 async function bootstrap() {
