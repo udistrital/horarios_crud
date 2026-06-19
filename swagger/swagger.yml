@@ -1,0 +1,724 @@
+openapi: 3.0.0
+paths:
+  /:
+    get:
+      operationId: AppController_healthcheck
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - health-check
+  /colocacion-espacio-academico:
+    post:
+      operationId: ColocacionEspacioAcademicoController_post
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ColocacionEspacioAcademicoDto'
+      responses:
+        '201':
+          description: ''
+      tags: &ref_0
+        - colocacion-espacio-academico
+    get:
+      operationId: ColocacionEspacioAcademicoController_getAll
+      parameters:
+        - name: query
+          required: false
+          in: query
+          description: query - Filter. e.g. col1:v1,col2:v2 …
+          schema:
+            type: string
+        - name: fields
+          required: false
+          in: query
+          description: fields - Fields returned. e.g. col1,col2 …
+          schema:
+            type: string
+        - name: sortby
+          required: false
+          in: query
+          description: sortby - Sorted-by fields. e.g. col1,col2 …
+          schema:
+            type: string
+        - name: order
+          required: false
+          in: query
+          description: >-
+            order - Order corresponding to each sortby field, if single value,
+            apply to all sortby fields. e.g. desc,asc …
+          schema:
+            type: string
+        - name: limit
+          required: false
+          in: query
+          description: limit - Limit the size of result set. Must be an integer
+          schema:
+            type: string
+        - name: offset
+          required: false
+          in: query
+          description: offset - Start position of result set. Must be an integer
+          schema:
+            type: string
+        - name: populate
+          required: false
+          in: query
+          description: populate - show subqueries. Must be a boolean
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_0
+  /colocacion-espacio-academico/{_id}:
+    get:
+      operationId: ColocacionEspacioAcademicoController_getById
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_0
+    put:
+      operationId: ColocacionEspacioAcademicoController_put
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ColocacionEspacioAcademicoDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_0
+    delete:
+      operationId: ColocacionEspacioAcademicoController_delete
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_0
+  /estado-creacion-semestre:
+    post:
+      operationId: EstadoCreacionSemestreController_post
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EstadoCreacionSemestreDto'
+      responses:
+        '201':
+          description: ''
+      tags: &ref_1
+        - estado-creacion-semestre
+    get:
+      operationId: EstadoCreacionSemestreController_getAll
+      parameters:
+        - name: query
+          required: false
+          in: query
+          description: query - Filter. e.g. col1:v1,col2:v2 …
+          schema:
+            type: string
+        - name: fields
+          required: false
+          in: query
+          description: fields - Fields returned. e.g. col1,col2 …
+          schema:
+            type: string
+        - name: sortby
+          required: false
+          in: query
+          description: sortby - Sorted-by fields. e.g. col1,col2 …
+          schema:
+            type: string
+        - name: order
+          required: false
+          in: query
+          description: >-
+            order - Order corresponding to each sortby field, if single value,
+            apply to all sortby fields. e.g. desc,asc …
+          schema:
+            type: string
+        - name: limit
+          required: false
+          in: query
+          description: limit - Limit the size of result set. Must be an integer
+          schema:
+            type: string
+        - name: offset
+          required: false
+          in: query
+          description: offset - Start position of result set. Must be an integer
+          schema:
+            type: string
+        - name: populate
+          required: false
+          in: query
+          description: populate - show subqueries. Must be a boolean
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_1
+  /estado-creacion-semestre/{_id}:
+    get:
+      operationId: EstadoCreacionSemestreController_getById
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_1
+    put:
+      operationId: EstadoCreacionSemestreController_put
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EstadoCreacionSemestreDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_1
+    delete:
+      operationId: EstadoCreacionSemestreController_delete
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_1
+  /estado-creacion:
+    post:
+      operationId: EstadoCreacionController_post
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EstadoCreacionDto'
+      responses:
+        '201':
+          description: ''
+      tags: &ref_2
+        - estado-creacion
+    get:
+      operationId: EstadoCreacionController_getAll
+      parameters:
+        - name: query
+          required: false
+          in: query
+          description: query - Filter. e.g. col1:v1,col2:v2 …
+          schema:
+            type: string
+        - name: fields
+          required: false
+          in: query
+          description: fields - Fields returned. e.g. col1,col2 …
+          schema:
+            type: string
+        - name: sortby
+          required: false
+          in: query
+          description: sortby - Sorted-by fields. e.g. col1,col2 …
+          schema:
+            type: string
+        - name: order
+          required: false
+          in: query
+          description: >-
+            order - Order corresponding to each sortby field, if single value,
+            apply to all sortby fields. e.g. desc,asc …
+          schema:
+            type: string
+        - name: limit
+          required: false
+          in: query
+          description: limit - Limit the size of result set. Must be an integer
+          schema:
+            type: string
+        - name: offset
+          required: false
+          in: query
+          description: offset - Start position of result set. Must be an integer
+          schema:
+            type: string
+        - name: populate
+          required: false
+          in: query
+          description: populate - show subqueries. Must be a boolean
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_2
+  /estado-creacion/{_id}:
+    get:
+      operationId: EstadoCreacionController_getById
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_2
+    put:
+      operationId: EstadoCreacionController_put
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EstadoCreacionDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_2
+    delete:
+      operationId: EstadoCreacionController_delete
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_2
+  /grupo-estudio:
+    post:
+      operationId: GrupoEstudioController_post
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrupoEstudioDto'
+      responses:
+        '201':
+          description: ''
+      tags: &ref_3
+        - grupo-estudio
+    get:
+      operationId: GrupoEstudioController_getAll
+      parameters:
+        - name: query
+          required: false
+          in: query
+          description: query - Filter. e.g. col1:v1,col2:v2 …
+          schema:
+            type: string
+        - name: fields
+          required: false
+          in: query
+          description: fields - Fields returned. e.g. col1,col2 …
+          schema:
+            type: string
+        - name: sortby
+          required: false
+          in: query
+          description: sortby - Sorted-by fields. e.g. col1,col2 …
+          schema:
+            type: string
+        - name: order
+          required: false
+          in: query
+          description: >-
+            order - Order corresponding to each sortby field, if single value,
+            apply to all sortby fields. e.g. desc,asc …
+          schema:
+            type: string
+        - name: limit
+          required: false
+          in: query
+          description: limit - Limit the size of result set. Must be an integer
+          schema:
+            type: string
+        - name: offset
+          required: false
+          in: query
+          description: offset - Start position of result set. Must be an integer
+          schema:
+            type: string
+        - name: populate
+          required: false
+          in: query
+          description: populate - show subqueries. Must be a boolean
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_3
+  /grupo-estudio/{_id}:
+    get:
+      operationId: GrupoEstudioController_getById
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_3
+    put:
+      operationId: GrupoEstudioController_put
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrupoEstudioDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_3
+    delete:
+      operationId: GrupoEstudioController_delete
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_3
+  /horario:
+    post:
+      operationId: HorarioController_post
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HorarioDto'
+      responses:
+        '201':
+          description: ''
+      tags: &ref_4
+        - horario
+    get:
+      operationId: HorarioController_getAll
+      parameters:
+        - name: query
+          required: false
+          in: query
+          description: query - Filter. e.g. col1:v1,col2:v2 …
+          schema:
+            type: string
+        - name: fields
+          required: false
+          in: query
+          description: fields - Fields returned. e.g. col1,col2 …
+          schema:
+            type: string
+        - name: sortby
+          required: false
+          in: query
+          description: sortby - Sorted-by fields. e.g. col1,col2 …
+          schema:
+            type: string
+        - name: order
+          required: false
+          in: query
+          description: >-
+            order - Order corresponding to each sortby field, if single value,
+            apply to all sortby fields. e.g. desc,asc …
+          schema:
+            type: string
+        - name: limit
+          required: false
+          in: query
+          description: limit - Limit the size of result set. Must be an integer
+          schema:
+            type: string
+        - name: offset
+          required: false
+          in: query
+          description: offset - Start position of result set. Must be an integer
+          schema:
+            type: string
+        - name: populate
+          required: false
+          in: query
+          description: populate - show subqueries. Must be a boolean
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_4
+  /horario/{_id}:
+    get:
+      operationId: HorarioController_getById
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_4
+    put:
+      operationId: HorarioController_put
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HorarioDto'
+      responses:
+        '200':
+          description: ''
+      tags: *ref_4
+    delete:
+      operationId: HorarioController_delete
+      parameters:
+        - name: _id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags: *ref_4
+info:
+  title: Horarios_crud
+  description: API CRUD para la gestion de horarios
+  version: '1.0'
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    EstadoCreacionDto:
+      type: object
+      properties:
+        Nombre:
+          type: string
+        Descripcion:
+          type: string
+        CodigoAbreviacion:
+          type: string
+        Activo:
+          type: boolean
+        FechaCreacion:
+          format: date-time
+          type: string
+        FechaModificacion:
+          format: date-time
+          type: string
+      required:
+        - Nombre
+        - Descripcion
+        - CodigoAbreviacion
+        - Activo
+        - FechaCreacion
+        - FechaModificacion
+    HorarioDto:
+      type: object
+      properties:
+        Nombre:
+          type: string
+        CodigoAbreviacion:
+          type: string
+        Codigo:
+          type: string
+        ProyectoAcademicoId:
+          type: number
+        PlanEstudioId:
+          type: number
+        Semestres:
+          type: number
+        PeriodoId:
+          type: number
+        EstadoCreacionId:
+          $ref: '#/components/schemas/EstadoCreacionDto'
+        Observacion:
+          type: string
+        Activo:
+          type: boolean
+        FechaCreacion:
+          format: date-time
+          type: string
+        FechaModificacion:
+          format: date-time
+          type: string
+      required:
+        - Nombre
+        - CodigoAbreviacion
+        - Codigo
+        - ProyectoAcademicoId
+        - PlanEstudioId
+        - Semestres
+        - PeriodoId
+        - EstadoCreacionId
+        - Observacion
+        - Activo
+        - FechaCreacion
+        - FechaModificacion
+    EstadoCreacionSemestreDto:
+      type: object
+      properties:
+        Nombre:
+          type: string
+        Descripcion:
+          type: string
+        CodigoAbreviacion:
+          type: string
+        Activo:
+          type: boolean
+        FechaCreacion:
+          format: date-time
+          type: string
+        FechaModificacion:
+          format: date-time
+          type: string
+      required:
+        - Nombre
+        - Descripcion
+        - CodigoAbreviacion
+        - Activo
+        - FechaCreacion
+        - FechaModificacion
+    GrupoEstudioDto:
+      type: object
+      properties:
+        CodigoProyecto:
+          type: string
+        IndicadorGrupo:
+          type: string
+        CuposGrupos:
+          type: number
+        EspaciosAcademicos:
+          type: object
+        SemestreId:
+          type: number
+        HorarioId:
+          $ref: '#/components/schemas/HorarioDto'
+        EstadoCreacionSemestreId:
+          $ref: '#/components/schemas/EstadoCreacionSemestreDto'
+        Observacion:
+          type: string
+        Activo:
+          type: boolean
+        FechaCreacion:
+          format: date-time
+          type: string
+        FechaModificacion:
+          format: date-time
+          type: string
+      required:
+        - CodigoProyecto
+        - IndicadorGrupo
+        - CuposGrupos
+        - EspaciosAcademicos
+        - SemestreId
+        - HorarioId
+        - EstadoCreacionSemestreId
+        - Observacion
+        - Activo
+        - FechaCreacion
+        - FechaModificacion
+    ColocacionEspacioAcademicoDto:
+      type: object
+      properties:
+        EspacioAcademicoId:
+          type: string
+        EspacioFisicoId:
+          type: number
+        ColocacionEspacioAcademico:
+          type: object
+        ResumenColocacionEspacioFisico:
+          type: object
+        GrupoEstudioId:
+          $ref: '#/components/schemas/GrupoEstudioDto'
+        Activo:
+          type: boolean
+        FechaCreacion:
+          format: date-time
+          type: string
+        FechaModificacion:
+          format: date-time
+          type: string
+      required:
+        - EspacioAcademicoId
+        - EspacioFisicoId
+        - ColocacionEspacioAcademico
+        - ResumenColocacionEspacioFisico
+        - GrupoEstudioId
+        - Activo
+        - FechaCreacion
+        - FechaModificacion
